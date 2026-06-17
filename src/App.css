@@ -35,3 +35,36 @@ img {
   display: block;
   max-width: 100%;
 }
+
+/* ─── Анимации появления ─── */
+
+/* Начальное состояние: невидимый, сдвинут вниз на 40px */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+/* Финальное состояние: видимый, на месте */
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Задержки для stagger-эффекта (карточки Works появляются по очереди) */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+.reveal-delay-6 { transition-delay: 0.6s; }
+
+/* Hero: появляется при загрузке страницы, без скролла */
+.hero-fade-in {
+  animation: heroFadeIn 0.9s ease forwards;
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

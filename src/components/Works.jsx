@@ -1,4 +1,5 @@
 import './Works.css'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 
 const works = [
   {
@@ -39,26 +40,34 @@ const works = [
   },
 ]
 
+function WorkCard({ work: w }) {
+  const ref = useScrollReveal()
+  return (
+    <article className={`works__card reveal reveal-delay-${w.id}`} ref={ref}>
+      <div className="works__card-preview">
+        <img src={w.image} alt={w.category} className="works__card-img" />
+      </div>
+      <div className="works__card-info">
+        <div>
+          <p className="works__card-category">{w.category}</p>
+          <p className="works__card-desc">{w.desc}</p>
+        </div>
+        <span className="works__card-arrow">↗</span>
+      </div>
+    </article>
+  )
+}
+
 export default function Works() {
+  const headingRef = useScrollReveal()
+
   return (
     <section className="works">
       <div className="works__inner">
-        <h2 className="works__heading">Мои<br />Работы</h2>
-
+        <h2 className="works__heading reveal" ref={headingRef}>Мои<br />Работы</h2>
         <div className="works__grid">
           {works.map((w) => (
-            <article key={w.id} className="works__card">
-              <div className="works__card-preview">
-                <img src={w.image} alt={w.category} className="works__card-img" />
-              </div>
-              <div className="works__card-info">
-                <div>
-                  <p className="works__card-category">{w.category}</p>
-                  <p className="works__card-desc">{w.desc}</p>
-                </div>
-                <span className="works__card-arrow">↗</span>
-              </div>
-            </article>
+            <WorkCard key={w.id} work={w} />
           ))}
         </div>
       </div>

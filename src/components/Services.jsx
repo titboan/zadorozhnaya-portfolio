@@ -1,4 +1,5 @@
 import './Services.css'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 
 const services = [
   {
@@ -29,16 +30,19 @@ const services = [
 ]
 
 export default function Services() {
+  const headingRef = useScrollReveal()
+  const listRef = useScrollReveal()
+
   return (
     <section className="services">
       <div className="services__inner">
-        <h2 className="services__heading">
+        <h2 className="services__heading reveal" ref={headingRef}>
           <span className="services__heading-black">упаковка бренда под ключ</span><br />
           от создания логотипа<br />
           до разработки рекламной кампании
         </h2>
 
-        <ul className="services__list">
+        <ul className="services__list reveal reveal-delay-1" ref={listRef}>
           {services.map((s) => (
             <li key={s.num} className={`services__item${s.blurred ? ' services__item--blurred' : ''}`}>
               <span className="services__num">{s.num}</span>

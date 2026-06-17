@@ -3,6 +3,7 @@ import './Hero.css'
 export default function Hero() {
   return (
     <header className="hero">
+
       <nav className="hero__nav">
         <div className="hero__logo-wrap">
           <img src="/images/logo.svg" alt="Zadorozhnaya" className="hero__logo" onError={(e) => { e.target.style.display = 'none' }} />
@@ -16,7 +17,7 @@ export default function Hero() {
         <div className="hero__overlay" />
       </div>
 
-      <div className="hero__content">
+      <div className="hero__content hero-fade-in">
         <span className="hero__label-top">ваш</span>
         <div className="hero__line" />
         <h1 className="hero__heading">
