@@ -1,19 +1,21 @@
-/* ─── Hero: 100vh, все элементы абсолютные как в Figma ─── */
+/* ─── Hero: пропорции Figma 1920×1215 → всё в vw ─── */
+/* height = 1215/1920 × 100vw = 63.28vw — масштабируется с шириной */
 .hero {
   position: relative;
   background-color: #0f0f0f;
-  height: 100vh;
-  min-height: 700px;
+  height: 63.28vw;
+  min-height: 600px;
+  max-height: 1215px;
   overflow: hidden;
 }
 
-/* ── Навигация: absolute, top: 0, padding 32px 96px, justify-center ── */
+/* ── Навигация: centered, padding 32px 96px ── */
 .hero__nav {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  padding: 32px var(--section-padding-x);
+  padding: 1.67vw 5vw;
   z-index: 10;
   display: flex;
   align-items: center;
@@ -39,18 +41,18 @@
 }
 
 .hero__subtitle-nav {
-  font-size: 16px;
+  font-size: clamp(12px, 0.83vw, 16px);
   font-weight: 200;
   color: var(--color-white);
   text-transform: lowercase;
 }
 
-/* ── Фото: left 388/1920=20.21%, width 1144/1920=59.58%, top: 0, height: 100% ── */
+/* ── Фото: left 388/1920=20.21vw, width 1144/1920=59.58vw ── */
 .hero__photo-wrap {
   position: absolute;
   top: 0;
-  left: 20.21%;
-  width: 59.58%;
+  left: 20.21vw;
+  width: 59.58vw;
   height: 100%;
   overflow: hidden;
   will-change: transform;
@@ -64,55 +66,60 @@
   margin-top: -9%;
 }
 
-/* ── Overlay (Rectangle56): left -59px (-3.07%), width 960px (50%) ── */
-/* Тёмный слева → прозрачный справа, обрезается на 50% ширины */
+/* ── Overlay (Rectangle56): left -59px=-3.07vw, width 960px=50vw ── */
 .hero__overlay {
   position: absolute;
-  left: -3.07%;
+  left: -3.07vw;
   top: 7.74%;
-  width: 50%;
+  width: 50vw;
   height: 92.3%;
-  background: linear-gradient(to right, #0f0f0f 0%, #0f0f0f 50%, rgba(15,15,15,0.8) 75%, rgba(15,15,15,0) 100%);
+  background: linear-gradient(
+    to right,
+    #0f0f0f 0%,
+    #0f0f0f 55%,
+    rgba(15, 15, 15, 0.7) 80%,
+    rgba(15, 15, 15, 0) 100%
+  );
   pointer-events: none;
   z-index: 2;
 }
 
-/* ── Контент: absolute inset:0, z-index 5, fade-in ── */
+/* ── Контент ── */
 .hero__content {
   position: absolute;
   inset: 0;
   z-index: 5;
 }
 
-/* "ваш": left 97/1920=5.05%, top 130.5/1215=10.74%, translateY(-50%) */
+/* "ваш": left 97/1920=5.05vw, top 130.5/1920=6.8vw, translateY(-50%) */
 .hero__label-top {
   position: absolute;
-  left: 5.05%;
-  top: 10.74%;
+  left: 5.05vw;
+  top: 6.8vw;
   transform: translateY(-50%);
-  font-size: 24px;
+  font-size: clamp(14px, 1.25vw, 24px);
   font-weight: 300;
   color: var(--color-white);
   text-transform: capitalize;
 }
 
-/* Линия: left 97/1920=5.05%, top 181/1215=14.9%, height 465/1215=38.27% */
+/* Линия: left 97/1920=5.05vw, top 181/1920=9.43vw, height 465/1920=24.22vw */
 .hero__line {
   position: absolute;
-  left: 5.05%;
-  top: 14.9%;
+  left: 5.05vw;
+  top: 9.43vw;
   width: 1px;
-  height: 38.27%;
+  height: 24.22vw;
   background-color: var(--color-white);
 }
 
-/* Заголовок: left 97/1920=5.05%, top 776/1215=63.87%, translateY(-50%), 90px medium */
+/* Заголовок: left 97/1920=5.05vw, top 776/1920=40.42vw, 90/1920=4.69vw */
 .hero__heading {
   position: absolute;
-  left: 5.05%;
-  top: 63.87%;
+  left: 5.05vw;
+  top: 40.42vw;
   transform: translateY(-50%);
-  font-size: clamp(40px, 4.69vw, 90px);
+  font-size: clamp(32px, 4.69vw, 90px);
   font-weight: 500;
   color: var(--color-white);
   text-transform: uppercase;
@@ -120,39 +127,39 @@
   white-space: nowrap;
 }
 
-/* Имя: left 1363/1920=70.99%, top 730/1215=60.08%, translateY(-50%), 24px light capitalize */
+/* Имя: left 1363/1920=70.99vw, top 730/1920=38.02vw */
 .hero__name {
   position: absolute;
-  left: 70.99%;
-  top: 60.08%;
+  left: 70.99vw;
+  top: 38.02vw;
   transform: translateY(-50%);
-  font-size: 24px;
+  font-size: clamp(14px, 1.25vw, 24px);
   font-weight: 300;
   color: var(--color-white);
   text-transform: capitalize;
   line-height: 1.4;
 }
 
-/* "уже N лет": left 122/1920=6.35%, top 986.5/1215=81.19%, translateY(-50%) */
+/* "уже N лет": left 122/1920=6.35vw, top 986.5/1920=51.38vw */
 .hero__years {
   position: absolute;
-  left: 6.35%;
-  top: 81.19%;
+  left: 6.35vw;
+  top: 51.38vw;
   transform: translateY(-50%);
-  font-size: 24px;
+  font-size: clamp(14px, 1.25vw, 24px);
   font-weight: 300;
   color: var(--color-white);
   text-transform: lowercase;
 }
 
-/* Описание: left calc(50%+403px)=70.99%, top 902.5/1215=74.28%, translateY(-50%), width 409/1920=21.3% */
+/* Описание: left 1363/1920=70.99vw, top 902.5/1920=47.01vw, width 409/1920=21.3vw */
 .hero__desc {
   position: absolute;
-  left: 70.99%;
-  top: 74.28%;
+  left: 70.99vw;
+  top: 47.01vw;
   transform: translateY(-50%);
-  width: 21.3%;
-  font-size: 20px;
+  width: 21.3vw;
+  font-size: clamp(12px, 1.04vw, 20px);
   font-weight: 300;
   color: var(--color-white);
   line-height: 1.6;
@@ -164,6 +171,7 @@
   .hero {
     height: auto;
     min-height: auto;
+    max-height: none;
     display: flex;
     flex-direction: column;
     padding-bottom: 64px;
@@ -172,6 +180,7 @@
   .hero__nav {
     position: relative;
     padding: 24px;
+    justify-content: flex-start;
   }
 
   .hero__photo-wrap {
@@ -190,7 +199,9 @@
 
   .hero__overlay {
     left: 0;
+    top: 0;
     width: 100%;
+    height: 100%;
     background: linear-gradient(to bottom, transparent 40%, #0f0f0f 100%);
   }
 
@@ -213,17 +224,13 @@
     transform: none;
     width: auto;
     white-space: normal;
+    font-size: revert;
   }
 
-  .hero__line {
-    display: none;
-  }
-
-  .hero__heading {
-    font-size: clamp(36px, 10vw, 56px);
-  }
-
-  .hero__desc {
-    font-size: 16px;
-  }
+  .hero__label-top { font-size: 18px; }
+  .hero__line { display: none; }
+  .hero__heading { font-size: clamp(36px, 10vw, 56px); }
+  .hero__name { font-size: 18px; }
+  .hero__years { font-size: 18px; }
+  .hero__desc { font-size: 14px; }
 }
