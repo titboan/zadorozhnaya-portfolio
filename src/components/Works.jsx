@@ -5,37 +5,37 @@ const works = [
     id: 1,
     category: 'Разработка логотипа',
     desc: 'Разработка логотипа как ключевого элемента целостной фирменной айдентики',
-    color: '#e4a44b',
+    image: '/images/work-1-logo.jpg',
   },
   {
     id: 2,
     category: 'Айдентика и фирменный стиль',
     desc: 'Глубокое погружение в нишу бизнеса, анализ конкурентов и проработка потенциального клиента',
-    color: '#2448e4',
+    image: '/images/work-2-identity.jpg',
   },
   {
     id: 3,
     category: 'Полиграфия',
     desc: 'Буклеты, листовки, визитки, открытки, лифлеты, пригласительные',
-    color: '#f0f0f0',
+    image: '/images/work-3-poly.jpg',
   },
   {
     id: 4,
     category: 'Разработка Key Visual',
     desc: 'Грамотно разработанный key visual вызывает у ЦА определённые чувства и ассоциации с брендом',
-    color: '#1a1a2e',
+    image: '/images/work-4-kv1.jpg',
   },
   {
     id: 5,
     category: 'Материалы для продвижения бренда',
     desc: 'Презентации | карточки для маркетплейсов | online-реклама | гайды',
-    color: '#0f0f0f',
+    image: '/images/work-5-kv2.jpg',
   },
   {
     id: 6,
     category: 'Оформление социальных сетей',
     desc: 'Instagram | ВКонтакте | YouTube — разработка визуального оформления и шаблонов',
-    color: '#2a2a2a',
+    image: '/images/work-1-logo.jpg',
   },
 ]
 
@@ -48,7 +48,9 @@ export default function Works() {
         <div className="works__grid">
           {works.map((w) => (
             <article key={w.id} className="works__card">
-              <div className="works__card-preview" style={{ backgroundColor: w.color }} />
+              <div className="works__card-preview">
+                <img src={w.image} alt={w.category} className="works__card-img" />
+              </div>
               <div className="works__card-info">
                 <div>
                   <p className="works__card-category">{w.category}</p>
