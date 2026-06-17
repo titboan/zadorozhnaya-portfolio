@@ -1,23 +1,24 @@
 # Дорожная карта
 
-## MVP (сейчас)
-- [ ] Hero секция
-- [ ] Services секция
-- [ ] Works/Portfolio секция
-- [ ] Contacts/Footer
-- [ ] Адаптивность (mobile 428px)
+## MVP ✅
+- [x] Hero секция
+- [x] Services секция
+- [x] Works/Portfolio секция
+- [x] Contacts/Footer
+- [x] Адаптивность (mobile 428px)
+- [x] Реальные фото из Figma
 
 ## v1.1 — Анимации
 - [ ] Плавное появление секций при скролле (Intersection Observer)
 - [ ] Hover-эффекты на карточках Works
 
 ## v1.2 — Контент
-- [ ] Реальные фото проектов (замена заглушек)
+- [ ] Финальные тексты в Services (убрать заглушки)
 - [ ] Форма обратной связи в Contacts
 
-## v1.3 — Деплой
-- [ ] Деплой на Vercel
-- [ ] Настройка домена
+## v1.3 — Деплой ✅
+- [x] Деплой на Vercel → https://zadorozhnaya-portfolio.vercel.app
+- [ ] Настройка кастомного домена
 
 ## Идеи на будущее
 - [ ] Анимированный логотип в Header

@@ -48,6 +48,11 @@ zadorozhnaya-portfolio/
 
 ---
 
+## Деплой
+
+Сайт живёт на Vercel: https://zadorozhnaya-portfolio.vercel.app  
+Каждый `git push` в ветку `master` → автоматический деплой.
+
 ## Команды
 
 ```bash
