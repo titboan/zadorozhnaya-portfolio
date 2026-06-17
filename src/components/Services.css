@@ -1,27 +1,27 @@
 .services {
   background-color: var(--color-blue);
-  padding: var(--section-padding-y) var(--section-padding-x) var(--section-padding-bottom);
+  padding: 5vw 5vw 6.67vw;
 }
 
 .services__inner {
   display: flex;
   flex-direction: column;
   gap: 96px;
-  max-width: 1728px;
 }
 
+/* Заголовок: 64px semibold, первая строка чёрная */
 .services__heading {
-  font-size: clamp(32px, 4vw, 64px);
+  font-size: clamp(28px, 3.33vw, 64px);
   font-weight: 600;
   color: var(--color-white);
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
 .services__heading-black {
   color: var(--color-black);
 }
 
-/* ── Список услуг ── */
+/* ── Список ── */
 .services__list-wrap {
   position: relative;
 }
@@ -32,7 +32,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 120px;
+  height: 180px;
   background: linear-gradient(to bottom, transparent, var(--color-blue));
   pointer-events: none;
   z-index: 2;
@@ -47,75 +47,160 @@
   overflow-y: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  padding-bottom: 80px;
+  padding-bottom: 120px;
 }
 
 .services__list::-webkit-scrollbar {
   display: none;
 }
 
-/* Каждый пункт: разделитель сверху, контент в строку */
+/* ── Пункт: номер слева, контент справа ── */
+/* Figma: border-top white, pt 64px, justify-between */
 .services__item {
   border-top: 1px solid var(--color-white);
-  padding-top: 64px;
+  padding-top: 3.33vw;
   display: flex;
   align-items: flex-start;
-  gap: 40px;
-  position: relative;
+  justify-content: space-between;
+  gap: 24px;
 }
 
-.services__item--blurred {
-  filter: blur(4px);
-  pointer-events: none;
+/* Левая группа: номер + (большой отступ) + заголовок */
+/* Figma gap: 380px из 1728px ≈ 19.79vw */
+.services__left {
+  display: flex;
+  align-items: flex-start;
+  gap: 19.79vw;
+  flex-shrink: 0;
 }
 
 .services__num {
-  font-size: 24px;
+  font-size: clamp(14px, 1.25vw, 24px);
   font-weight: 300;
   color: var(--color-white);
   text-transform: uppercase;
-  min-width: 48px;
+  min-width: 32px;
+  padding-top: 8px;
 }
 
+/* Figma: 64px medium, capitalize */
 .services__title {
-  font-size: clamp(32px, 3.5vw, 64px);
+  font-size: clamp(24px, 3.33vw, 64px);
   font-weight: 500;
   color: var(--color-white);
   text-transform: capitalize;
   line-height: 1.1;
   white-space: pre-line;
-  flex: 1;
 }
 
+/* Правая группа: описание + цена, выровнены вправо */
+/* Figma width: 561px = 29.22vw */
 .services__right {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 56px;
-  max-width: 560px;
+  width: clamp(240px, 29.22vw, 561px);
   flex-shrink: 0;
 }
 
-.services__desc {
-  font-size: 20px;
+.services__content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  text-align: right;
+}
+
+/* Вводная строка "Работа делится на 3 этапа:" */
+.services__intro {
+  font-size: clamp(13px, 1.25vw, 24px);
+  font-weight: 300;
+  color: var(--color-white);
+  line-height: 1.5;
+}
+
+/* Нумерованный список с кружками */
+.services__steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.services__step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+/* Кружок с цифрой: 29px, белая обводка */
+.services__step-circle {
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--color-white);
+  flex-shrink: 0;
+  order: -1;
+}
+
+.services__step-text {
+  font-size: clamp(13px, 1.25vw, 24px);
   font-weight: 300;
   color: var(--color-white);
   line-height: 1.5;
   text-align: right;
 }
 
+.services__desc {
+  font-size: clamp(13px, 1.25vw, 24px);
+  font-weight: 300;
+  color: var(--color-white);
+  line-height: 1.6;
+  text-align: right;
+  white-space: pre-line;
+}
+
+/* Цена: "от" + BOLD NUM + "₽" */
 .services__price {
-  font-size: 24px;
+  text-align: right;
+  line-height: 1;
+}
+
+.services__price-label {
+  font-size: clamp(13px, 1.25vw, 24px);
+  font-weight: 200;
+  color: var(--color-white);
+}
+
+/* Число цены чуть крупнее и обычный вес */
+.services__price-value {
+  font-size: clamp(15px, 1.46vw, 28px);
   font-weight: 400;
+  color: var(--color-white);
+  font-style: normal;
+}
+
+/* Сложная цена (несколько строк) */
+.services__price-plain {
+  font-size: clamp(13px, 1.25vw, 24px);
+  font-weight: 300;
   color: var(--color-white);
   white-space: pre-line;
   text-align: right;
 }
 
-/* ── Адаптивность ── */
+/* ── Мобайл ── */
 @media (max-width: 768px) {
   .services {
-    padding: 64px 24px;
+    padding: 64px 24px 80px;
   }
 
   .services__item {
@@ -124,12 +209,20 @@
     padding-top: 32px;
   }
 
-  .services__right {
-    align-items: flex-start;
-    max-width: 100%;
+  .services__left {
+    gap: 24px;
   }
 
-  .services__desc {
-    text-align: left;
+  .services__right {
+    align-items: flex-start;
+    width: 100%;
+    gap: 24px;
   }
+
+  .services__content { text-align: left; }
+  .services__desc { text-align: left; }
+  .services__price { text-align: left; }
+  .services__step { justify-content: flex-start; }
+  .services__step-text { text-align: left; }
+  .services__price-plain { text-align: left; }
 }
