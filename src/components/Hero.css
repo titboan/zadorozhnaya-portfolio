@@ -66,20 +66,18 @@
   margin-top: -9%;
 }
 
-/* ── Overlay (Rectangle56): left -59px=-3.07vw, width 960px=50vw ── */
+/* ── Overlay (Rectangle56): rounded rect, black 30% + backdrop blur 25px ── */
+/* Figma: left -59px, top 94px, width 960px, height 1121px, border-radius 174px */
 .hero__overlay {
   position: absolute;
   left: -3.07vw;
-  top: 7.74%;
+  top: 4.9vw;
   width: 50vw;
-  height: 92.3%;
-  background: linear-gradient(
-    to right,
-    #0f0f0f 0%,
-    #0f0f0f 55%,
-    rgba(15, 15, 15, 0.7) 80%,
-    rgba(15, 15, 15, 0) 100%
-  );
+  height: 58.38vw;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-radius: 9.06vw;
   pointer-events: none;
   z-index: 2;
 }
@@ -224,7 +222,10 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, transparent 40%, #0f0f0f 100%);
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   .hero__content {
