@@ -35,17 +35,22 @@ export default function Hero() {
       <div className="hero__content hero-fade-in">
         <span className="hero__label-top">ваш</span>
         <div className="hero__line" />
+
         <h1 className="hero__heading">
           <span className="hero__word" style={{ '--d': '0.15s' }}>графический</span>
           <br />
           <span className="hero__word" style={{ '--d': '0.4s' }}>дизайнер</span>
         </h1>
+
         <p className="hero__name">анастасия<br />задорожная</p>
+
         <p className="hero__years" ref={yearsRef}>уже {years} лет</p>
+
         <p className="hero__desc">
           Опыт работы в маркетинге с 2019 года | профильное высшее образование по специальности графический дизайн | работа с крупными брендами
         </p>
       </div>
+
     </header>
   )
 }
