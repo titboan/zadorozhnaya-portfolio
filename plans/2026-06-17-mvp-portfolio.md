@@ -1,19 +1,19 @@
 # MVP: портфолио по дизайну Figma
 
-Статус: в работе
+Статус: завершён
 
 ## Фазы
 
 - [x] Инфраструктура проекта (CLAUDE.md, ROADMAP.md, skills, папки)
-- [ ] React + Vite инициализация
-- [ ] CSS-переменные из Figma
-- [ ] App.jsx скелет
-- [ ] Hero секция
-- [ ] Services секция
-- [ ] Works/Portfolio секция
-- [ ] Contacts/Footer
-- [ ] Адаптивность mobile 428px
-- [ ] Git init + первый коммит
-- [ ] Создать репозиторий на GitHub
-- [ ] Связать локальный репозиторий с GitHub (git remote add origin)
-- [ ] Сделать первый push на GitHub
+- [x] React + Vite инициализация
+- [x] CSS-переменные из Figma
+- [x] App.jsx скелет
+- [x] Hero секция
+- [x] Services секция
+- [x] Works/Portfolio секция
+- [x] Contacts/Footer
+- [x] Адаптивность mobile 428px
+- [x] Git init + первый коммит
+- [x] Создать репозиторий на GitHub
+- [x] Связать локальный репозиторий с GitHub
+- [x] Сделать первый push на GitHub
