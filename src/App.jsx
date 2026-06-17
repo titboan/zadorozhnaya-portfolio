@@ -2,15 +2,21 @@ import Hero from './components/Hero'
 import Services from './components/Services'
 import Works from './components/Works'
 import Contacts from './components/Contacts'
+import Cursor from './components/Cursor'
+import Marquee from './components/Marquee'
 
 function App() {
   return (
-    <main>
-      <Hero />
-      <Services />
-      <Works />
-      <Contacts />
-    </main>
+    <>
+      <Cursor />
+      <main>
+        <Hero />
+        <Services />
+        <Marquee />
+        <Works />
+        <Contacts />
+      </main>
+    </>
   )
 }
 

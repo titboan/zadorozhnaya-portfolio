@@ -1,5 +1,6 @@
 import './Services.css'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { useCounter } from '../hooks/useCounter'
 
 const services = [
   {
@@ -29,6 +30,22 @@ const services = [
   },
 ]
 
+function ServiceItem({ s }) {
+  const [count, ref] = useCounter(parseInt(s.num), 800)
+  const displayNum = String(count).padStart(2, '0')
+
+  return (
+    <li ref={ref} className={`services__item${s.blurred ? ' services__item--blurred' : ''}`}>
+      <span className="services__num">{displayNum}</span>
+      <h3 className="services__title">{s.title}</h3>
+      <div className="services__right">
+        <p className="services__desc">{s.desc}</p>
+        <span className="services__price">{s.price}</span>
+      </div>
+    </li>
+  )
+}
+
 export default function Services() {
   const headingRef = useScrollReveal()
   const listRef = useScrollReveal()
@@ -44,14 +61,7 @@ export default function Services() {
 
         <ul className="services__list reveal reveal-delay-1" ref={listRef}>
           {services.map((s) => (
-            <li key={s.num} className={`services__item${s.blurred ? ' services__item--blurred' : ''}`}>
-              <span className="services__num">{s.num}</span>
-              <h3 className="services__title">{s.title}</h3>
-              <div className="services__right">
-                <p className="services__desc">{s.desc}</p>
-                <span className="services__price">{s.price}</span>
-              </div>
-            </li>
+            <ServiceItem key={s.num} s={s} />
           ))}
         </ul>
       </div>

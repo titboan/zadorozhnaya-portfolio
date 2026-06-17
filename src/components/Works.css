@@ -34,15 +34,10 @@
   flex-direction: column;
   gap: 40px;
   cursor: pointer;
-  transition: opacity 0.2s;
 }
 
 .works__card:nth-child(odd) {
   border-right: 1px solid rgba(255, 255, 255, 0.7);
-}
-
-.works__card:hover {
-  opacity: 0.8;
 }
 
 .works__card-preview {
@@ -58,6 +53,35 @@
   object-fit: cover;
   object-position: center;
   display: block;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.works__card:hover .works__card-img {
+  transform: scale(1.05);
+}
+
+.works__card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.works__card:hover .works__card-overlay {
+  opacity: 1;
+}
+
+.works__card-overlay-text {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--color-white);
+  text-transform: uppercase;
 }
 
 .works__card-info {

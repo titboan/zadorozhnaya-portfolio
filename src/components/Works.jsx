@@ -46,6 +46,9 @@ function WorkCard({ work: w }) {
     <article className={`works__card reveal reveal-delay-${w.id}`} ref={ref}>
       <div className="works__card-preview">
         <img src={w.image} alt={w.category} className="works__card-img" />
+        <div className="works__card-overlay">
+          <span className="works__card-overlay-text">СМОТРЕТЬ</span>
+        </div>
       </div>
       <div className="works__card-info">
         <div>
