@@ -94,11 +94,13 @@ export default function Services() {
           до разработки рекламной кампании
         </h2>
 
-        <ul className="services__list reveal reveal-delay-1" ref={listRef}>
-          {services.map((s) => (
-            <ServiceItem key={s.num} s={s} />
-          ))}
-        </ul>
+        <div className="services__list-wrap reveal reveal-delay-1" ref={listRef}>
+          <ul className="services__list">
+            {services.map((s) => (
+              <ServiceItem key={s.num} s={s} />
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   )
