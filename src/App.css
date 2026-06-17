@@ -1,0 +1,37 @@
+/* ─── Дизайн-токены из Figma ─── */
+:root {
+  --color-dark:    #0f0f0f;
+  --color-blue:    #2448e4;
+  --color-red:     #ea1f1f;
+  --color-white:   #ffffff;
+  --color-black:   #000000;
+
+  --font-main: 'Montserrat', sans-serif;
+
+  --section-padding-x: 96px;
+  --section-padding-y: 96px;
+  --section-padding-bottom: 128px;
+}
+
+/* ─── Сброс браузерных стилей ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}

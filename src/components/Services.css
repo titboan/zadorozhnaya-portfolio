@@ -1,0 +1,108 @@
+.services {
+  background-color: var(--color-blue);
+  padding: var(--section-padding-y) var(--section-padding-x) var(--section-padding-bottom);
+}
+
+.services__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+  max-width: 1728px;
+}
+
+.services__heading {
+  font-size: clamp(32px, 4vw, 64px);
+  font-weight: 600;
+  color: var(--color-white);
+  line-height: 1.1;
+}
+
+.services__heading-black {
+  color: var(--color-black);
+}
+
+/* ── Список услуг ── */
+.services__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Каждый пункт: разделитель сверху, контент в строку */
+.services__item {
+  border-top: 1px solid var(--color-white);
+  padding-top: 64px;
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  position: relative;
+}
+
+.services__item--blurred {
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+.services__num {
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--color-white);
+  text-transform: uppercase;
+  min-width: 48px;
+}
+
+.services__title {
+  font-size: clamp(32px, 3.5vw, 64px);
+  font-weight: 500;
+  color: var(--color-white);
+  text-transform: capitalize;
+  line-height: 1.1;
+  white-space: pre-line;
+  flex: 1;
+}
+
+.services__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 56px;
+  max-width: 560px;
+  flex-shrink: 0;
+}
+
+.services__desc {
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--color-white);
+  line-height: 1.5;
+  text-align: right;
+}
+
+.services__price {
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--color-white);
+}
+
+/* ── Адаптивность ── */
+@media (max-width: 768px) {
+  .services {
+    padding: 64px 24px;
+  }
+
+  .services__item {
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 32px;
+  }
+
+  .services__right {
+    align-items: flex-start;
+    max-width: 100%;
+  }
+
+  .services__desc {
+    text-align: left;
+  }
+}

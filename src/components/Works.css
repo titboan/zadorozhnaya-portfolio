@@ -1,0 +1,102 @@
+.works {
+  background-color: var(--color-dark);
+  padding: var(--section-padding-y) var(--section-padding-x) var(--section-padding-bottom);
+}
+
+.works__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+  max-width: 1728px;
+}
+
+.works__heading {
+  font-size: clamp(48px, 6vw, 90px);
+  font-weight: 600;
+  color: var(--color-white);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* ── Сетка проектов ──
+   repeat(2, 1fr) — два столбца одинаковой ширины.
+   fr = fractional unit = «одна доля от свободного пространства» */
+.works__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.works__card {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.works__card:nth-child(odd) {
+  border-right: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.works__card:hover {
+  opacity: 0.8;
+}
+
+.works__card-preview {
+  border-radius: 16px;
+  height: 350px;
+  overflow: hidden;
+}
+
+.works__card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.works__card-category {
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--color-white);
+  opacity: 0.7;
+  margin-bottom: 16px;
+}
+
+.works__card-desc {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--color-white);
+  line-height: 1.5;
+  max-width: 450px;
+}
+
+.works__card-arrow {
+  font-size: 40px;
+  color: var(--color-white);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* ── Адаптивность ── */
+@media (max-width: 768px) {
+  .works {
+    padding: 64px 24px;
+  }
+
+  /* На мобильном — один столбец */
+  .works__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .works__card:nth-child(odd) {
+    border-right: none;
+  }
+
+  .works__card-preview {
+    height: 240px;
+  }
+}
