@@ -36,7 +36,7 @@ const works = [
     id: 6,
     category: 'Оформление социальных сетей',
     desc: 'Instagram | ВКонтакте | YouTube — разработка визуального оформления и шаблонов',
-    image: '/images/work-1-logo.jpg',
+    image: '/images/work-6-social.jpg',
   },
 ]
 
