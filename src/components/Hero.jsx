@@ -67,6 +67,13 @@ export default function Hero() {
           по специальности графический дизайн | работа с крупными брендами
         </p>
 
+        {/* Group4 — три цветных круга: left 1363px=70.99vw, top 987px=51.4vw */}
+        <div className="hero__dots">
+          <span className="hero__dot hero__dot--blue" />
+          <span className="hero__dot hero__dot--yellow" />
+          <span className="hero__dot hero__dot--red" />
+        </div>
+
       </div>
 
     </header>

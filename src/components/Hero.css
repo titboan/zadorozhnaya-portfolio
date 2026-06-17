@@ -166,6 +166,28 @@
   text-transform: lowercase;
 }
 
+/* Три цветных круга (Group4): left 1363/1920=70.99vw, top 987/1920=51.4vw, w 49.8px, h 15px */
+.hero__dots {
+  position: absolute;
+  left: 70.99vw;
+  top: 51.4vw;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero__dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.hero__dot--blue   { background: #2448e4; }
+.hero__dot--yellow { background: #f0c040; }
+.hero__dot--red    { background: #ea1f1f; }
+
 /* ── Мобайл ── */
 @media (max-width: 768px) {
   .hero {
@@ -219,7 +241,8 @@
   .hero__heading,
   .hero__name,
   .hero__years,
-  .hero__desc {
+  .hero__desc,
+  .hero__dots {
     position: static;
     transform: none;
     width: auto;
