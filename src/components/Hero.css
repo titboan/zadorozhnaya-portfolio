@@ -7,7 +7,7 @@
   overflow: hidden;
 }
 
-/* ── Навигация: absolute, top: 0, padding 32px 96px ── */
+/* ── Навигация: absolute, top: 0, padding 32px 96px, justify-center ── */
 .hero__nav {
   position: absolute;
   top: 0;
@@ -15,6 +15,9 @@
   right: 0;
   padding: 32px var(--section-padding-x);
   z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero__logo-wrap {
@@ -61,15 +64,15 @@
   margin-top: -9%;
 }
 
-/* ── Overlay (Rectangle56): left -59/1920=-3.07%, top 94/1215=7.74%, width 960/1920=50%, height 1121/1215=92.3% ── */
-/* Воссоздаём градиентом: тёмный слева → прозрачный справа */
+/* ── Overlay (Rectangle56): left -59px (-3.07%), width 960px (50%) ── */
+/* Тёмный слева → прозрачный справа, обрезается на 50% ширины */
 .hero__overlay {
   position: absolute;
   left: -3.07%;
-  top: 0;
-  width: 53%;
-  height: 100%;
-  background: linear-gradient(to right, #0f0f0f 0%, #0f0f0f 45%, rgba(15,15,15,0.6) 70%, rgba(15,15,15,0) 100%);
+  top: 7.74%;
+  width: 50%;
+  height: 92.3%;
+  background: linear-gradient(to right, #0f0f0f 0%, #0f0f0f 50%, rgba(15,15,15,0.8) 75%, rgba(15,15,15,0) 100%);
   pointer-events: none;
   z-index: 2;
 }
