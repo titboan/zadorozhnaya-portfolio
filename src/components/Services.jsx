@@ -95,7 +95,7 @@ export default function Services() {
         </h2>
 
         <div className="services__list-wrap reveal reveal-delay-1" ref={listRef}>
-          <ul className="services__list">
+          <ul className="services__list" data-lenis-prevent>
             {services.map((s) => (
               <ServiceItem key={s.num} s={s} />
             ))}
