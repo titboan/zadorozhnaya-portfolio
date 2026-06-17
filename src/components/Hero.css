@@ -1,12 +1,13 @@
+/* ─── Hero: 100vh, все элементы абсолютные как в Figma ─── */
 .hero {
   position: relative;
-  background-color: var(--color-dark);
+  background-color: #0f0f0f;
   height: 100vh;
   min-height: 700px;
   overflow: hidden;
 }
 
-/* ── Навигация ── */
+/* ── Навигация: absolute, top: 0, padding 32px 96px ── */
 .hero__nav {
   position: absolute;
   top: 0;
@@ -41,82 +42,87 @@
   text-transform: lowercase;
 }
 
-/* ── Фото: начинается с 20% левого края ── */
+/* ── Фото: left 388/1920=20.21%, width 1144/1920=59.58%, top: 0, height: 100% ── */
 .hero__photo-wrap {
   position: absolute;
   top: 0;
-  left: 20%;
-  width: 62%;
+  left: 20.21%;
+  width: 59.58%;
   height: 100%;
+  overflow: hidden;
   will-change: transform;
 }
 
 .hero__photo {
   width: 100%;
-  height: 100%;
+  height: 115%;
   object-fit: cover;
   object-position: top center;
+  margin-top: -9%;
 }
 
-/* Градиент: тёмный от левого края фото, перекрывает зону текста */
+/* ── Overlay (Rectangle56): left -59/1920=-3.07%, top 94/1215=7.74%, width 960/1920=50%, height 1121/1215=92.3% ── */
+/* Воссоздаём градиентом: тёмный слева → прозрачный справа */
 .hero__overlay {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    var(--color-dark) 0%,
-    rgba(15, 15, 15, 0.92) 25%,
-    rgba(15, 15, 15, 0.5) 55%,
-    transparent 80%
-  );
+  left: -3.07%;
+  top: 0;
+  width: 53%;
+  height: 100%;
+  background: linear-gradient(to right, #0f0f0f 0%, #0f0f0f 45%, rgba(15,15,15,0.6) 70%, rgba(15,15,15,0) 100%);
+  pointer-events: none;
+  z-index: 2;
 }
 
-/* ── Контентный слой: все элементы абсолютные ── */
+/* ── Контент: absolute inset:0, z-index 5, fade-in ── */
 .hero__content {
   position: absolute;
   inset: 0;
   z-index: 5;
 }
 
-/* "ваш" — верхний левый угол */
+/* "ваш": left 97/1920=5.05%, top 130.5/1215=10.74%, translateY(-50%) */
 .hero__label-top {
   position: absolute;
-  left: 6.35%;
-  top: 10.7%;
+  left: 5.05%;
+  top: 10.74%;
+  transform: translateY(-50%);
   font-size: 24px;
   font-weight: 300;
   color: var(--color-white);
   text-transform: capitalize;
 }
 
-/* Вертикальная линия */
+/* Линия: left 97/1920=5.05%, top 181/1215=14.9%, height 465/1215=38.27% */
 .hero__line {
   position: absolute;
   left: 5.05%;
   top: 14.9%;
   width: 1px;
-  height: 38%;
+  height: 38.27%;
   background-color: var(--color-white);
 }
 
-/* Заголовок — внизу hero, левый край */
+/* Заголовок: left 97/1920=5.05%, top 776/1215=63.87%, translateY(-50%), 90px medium */
 .hero__heading {
   position: absolute;
   left: 5.05%;
-  top: 61%;
-  font-size: clamp(48px, 6vw, 90px);
+  top: 63.87%;
+  transform: translateY(-50%);
+  font-size: clamp(40px, 4.69vw, 90px);
   font-weight: 500;
   color: var(--color-white);
   text-transform: uppercase;
   line-height: 1;
-  padding-left: 24px;
+  white-space: nowrap;
 }
 
-/* Имя дизайнера — правая колонка, верхняя строка */
+/* Имя: left 1363/1920=70.99%, top 730/1215=60.08%, translateY(-50%), 24px light capitalize */
 .hero__name {
   position: absolute;
-  left: 71%;
-  top: 60%;
+  left: 70.99%;
+  top: 60.08%;
+  transform: translateY(-50%);
   font-size: 24px;
   font-weight: 300;
   color: var(--color-white);
@@ -124,39 +130,44 @@
   line-height: 1.4;
 }
 
-/* "уже N лет" — левый край, под заголовком */
+/* "уже N лет": left 122/1920=6.35%, top 986.5/1215=81.19%, translateY(-50%) */
 .hero__years {
   position: absolute;
   left: 6.35%;
-  top: 80%;
+  top: 81.19%;
+  transform: translateY(-50%);
   font-size: 24px;
   font-weight: 300;
   color: var(--color-white);
   text-transform: lowercase;
-  padding-left: 24px;
 }
 
-/* Описание — правая колонка, ниже имени */
+/* Описание: left calc(50%+403px)=70.99%, top 902.5/1215=74.28%, translateY(-50%), width 409/1920=21.3% */
 .hero__desc {
   position: absolute;
-  left: 71%;
-  top: 74%;
-  width: 21%;
+  left: 70.99%;
+  top: 74.28%;
+  transform: translateY(-50%);
+  width: 21.3%;
   font-size: 20px;
   font-weight: 300;
   color: var(--color-white);
   line-height: 1.6;
+  text-transform: lowercase;
 }
 
-/* ── Адаптивность (мобайл) ── */
+/* ── Мобайл ── */
 @media (max-width: 768px) {
   .hero {
     height: auto;
     min-height: auto;
-    padding: 100px 24px 64px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 64px;
   }
 
   .hero__nav {
+    position: relative;
     padding: 24px;
   }
 
@@ -164,12 +175,20 @@
     position: relative;
     left: 0;
     width: 100%;
-    height: 400px;
+    height: 60vw;
+    max-height: 420px;
     margin-bottom: 32px;
   }
 
+  .hero__photo {
+    height: 100%;
+    margin-top: 0;
+  }
+
   .hero__overlay {
-    background: linear-gradient(to bottom, transparent 50%, var(--color-dark) 100%);
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to bottom, transparent 40%, #0f0f0f 100%);
   }
 
   .hero__content {
@@ -178,6 +197,7 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    padding: 0 24px;
   }
 
   .hero__label-top,
@@ -187,9 +207,9 @@
   .hero__years,
   .hero__desc {
     position: static;
-    padding-left: 0;
+    transform: none;
     width: auto;
-    height: auto;
+    white-space: normal;
   }
 
   .hero__line {
@@ -197,7 +217,7 @@
   }
 
   .hero__heading {
-    font-size: clamp(40px, 10vw, 64px);
+    font-size: clamp(36px, 10vw, 56px);
   }
 
   .hero__desc {
