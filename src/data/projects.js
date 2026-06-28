@@ -15,6 +15,7 @@ export const projects = [
         title: 'Разработка логотипа и фирменного стиля (GUIDEBOOK)',
         sub: 'для АГРОЦЕНТРА холдинга AVA Group',
         image: '/images/projects/agrocentr/Агроцентр.jpg',
+        projectSlug: 'agrocentr',
       },
       {
         type: 'full',
@@ -27,6 +28,7 @@ export const projects = [
         title: 'Логотип «Солнечный берег»',
         sub: 'River Club',
         image: '/images/projects/solnechny-bereg/солнечный берег.jpg',
+        projectSlug: 'solnechny-bereg',
       },
     ],
   },

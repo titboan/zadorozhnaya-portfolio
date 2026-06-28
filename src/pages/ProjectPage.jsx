@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { getProject } from '../data/projects'
 import Contacts from '../components/Contacts'
 import './ProjectPage.css'
@@ -12,10 +12,13 @@ function Arrow() {
   )
 }
 
-function PCard({ image, title, desc, sub, type = 'full' }) {
+function PCard({ image, title, desc, sub, type = 'full', projectSlug }) {
+  const Tag = projectSlug ? Link : 'div'
+  const linkProps = projectSlug ? { to: `/project/${projectSlug}` } : {}
+
   if (type === 'side') {
     return (
-      <div className="pcard pcard--side">
+      <Tag className="pcard pcard--side" {...linkProps}>
         <div className="pcard__head">
           <div className="pcard__titles">
             <p className="pcard__title">{title}</p>
@@ -31,12 +34,12 @@ function PCard({ image, title, desc, sub, type = 'full' }) {
             </div>
           )}
         </div>
-      </div>
+      </Tag>
     )
   }
 
   return (
-    <div className="pcard">
+    <Tag className="pcard" {...linkProps}>
       <div className="pcard__head">
         <div className="pcard__titles">
           <p className="pcard__title">{title}</p>
@@ -49,7 +52,7 @@ function PCard({ image, title, desc, sub, type = 'full' }) {
           <img src={image} alt="" className="pcard__img" loading="lazy" />
         </div>
       )}
-    </div>
+    </Tag>
   )
 }
 

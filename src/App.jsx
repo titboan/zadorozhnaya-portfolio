@@ -6,6 +6,7 @@ import Contacts from './components/Contacts'
 import Cursor from './components/Cursor'
 import Marquee from './components/Marquee'
 import ProjectPage from './pages/ProjectPage'
+import CasePage from './pages/CasePage'
 
 function Home() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/case/:slug" element={<ProjectPage />} />
+        <Route path="/project/:slug" element={<CasePage />} />
       </Routes>
     </BrowserRouter>
   )
