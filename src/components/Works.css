@@ -61,25 +61,16 @@
   line-height: 1.4;
 }
 
-/* ── Arrow circle ── */
+/* ── Arrow SVG ── */
 .works__arrow {
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  color: var(--color-white);
+  width: 32px;
+  height: 32px;
   flex-shrink: 0;
-  line-height: 1;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .works__card:hover .works__arrow {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.8);
+  transform: translate(3px, -3px);
 }
 
 /* ── Text ── */

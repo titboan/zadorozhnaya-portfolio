@@ -2,7 +2,11 @@ import './Works.css'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 
 function Arrow() {
-  return <span className="works__arrow">↗</span>
+  return (
+    <svg className="works__arrow" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 26L26 6M26 6H10M26 6V22" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
 }
 
 function Card({ mod, cat, children }) {
