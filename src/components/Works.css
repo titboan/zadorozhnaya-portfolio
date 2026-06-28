@@ -201,11 +201,17 @@
 /* ── Мобайл ── */
 @media (max-width: 768px) {
   .works {
-    padding: 64px 24px 80px;
+    padding: 48px 28px 64px;
   }
 
   .works__inner {
     gap: 48px;
+  }
+
+  .works__heading {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 49px;
   }
 
   .works__top {
@@ -217,9 +223,38 @@
     border-top: 1px solid rgba(255, 255, 255, 0.7);
   }
 
+  .works__item {
+    padding: 20px 0;
+    gap: 20px;
+  }
+
   .works__item--poly,
   .works__item--kv {
     flex: none;
+  }
+
+  .works__cat {
+    font-size: 20px;
+    font-weight: 300;
+    opacity: 0.7;
+  }
+
+  .works__desc {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 16px;
+  }
+
+  .works__arrow {
+    width: 41px;
+    height: 41px;
+    top: 20px;
+    right: 0;
+  }
+
+  .works__arrow--lg {
+    width: 41px;
+    height: 41px;
   }
 
   .works__split {
@@ -227,17 +262,23 @@
   }
 
   .works__img-side {
-    height: 220px;
+    height: 195px;
     align-self: stretch;
+    border-radius: 16px;
+  }
+
+  .works__img-wrap--logo {
+    height: 195px;
   }
 
   .works__dual-imgs {
-    flex-direction: column;
-    min-height: auto;
+    flex-direction: row;
+    min-height: 195px;
   }
 
   .works__dual-imgs .works__img-wrap {
-    height: 180px;
+    height: 195px;
+    flex: 1;
   }
 
   .works__bottom {
