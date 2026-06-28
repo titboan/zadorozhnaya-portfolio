@@ -201,81 +201,148 @@
 
 /* ── Мобайл ── */
 @media (max-width: 768px) {
+  /* Секция: фиксированная высота как в Figma, всё абсолютно */
   .hero {
-    height: auto;
-    min-height: auto;
-    max-height: none;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 64px;
+    height: 826px;
+    min-height: 826px;
+    max-height: 826px;
+    display: block;
+    padding-bottom: 0;
+    overflow: hidden;
   }
 
+  /* Навбар: остаётся абсолютным наверху */
   .hero__nav {
-    position: relative;
-    padding: 24px;
-    justify-content: flex-start;
+    position: absolute;
+    padding: 24px 24px;
+    justify-content: center;
   }
 
+  /* Фото: уходит 53px вверх за край, зеркально */
   .hero__photo-wrap {
-    position: relative;
+    position: absolute;
     left: 0;
+    top: -53px;
     width: 100%;
-    height: 65vw;
-    max-height: 440px;
-    margin-bottom: 32px;
+    height: 695px;
+    overflow: hidden;
+    will-change: auto;
+    margin-bottom: 0;
   }
 
   .hero__photo {
+    width: 110%;
     height: 100%;
+    object-fit: cover;
+    object-position: top center;
     margin-top: 0;
+    margin-left: -5%;
     transform: scaleX(-1);
   }
 
+  /* Блюр-карта: только нижняя часть фото, Figma left:116 top:442 */
   .hero__overlay {
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    left: 116px;
+    top: 442px;
+    width: 430px;
+    height: 418px;
     border-radius: 52px;
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(12.5px);
     -webkit-backdrop-filter: blur(12.5px);
   }
 
+  /* Контент: абсолютный оверлей для всех текстов */
   .hero__content {
-    position: relative;
-    inset: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 0 24px;
+    position: absolute;
+    inset: 0;
+    display: block;
+    padding: 0;
+    gap: 0;
   }
 
+  /* Сброс всех элементов в absolute */
   .hero__label-top,
-  .hero__line,
   .hero__heading,
   .hero__name,
   .hero__years,
   .hero__desc,
   .hero__dots {
-    position: static;
+    position: absolute;
     transform: none;
     width: auto;
     white-space: normal;
-    font-size: revert;
   }
 
-  .hero__label-top { font-size: 16px; font-weight: 300; }
   .hero__line { display: none; }
-  .hero__heading { font-size: 40px; font-weight: 500; line-height: 49px; }
-  .hero__name { font-size: 16px; font-weight: 300; }
-  .hero__years { font-size: 16px; font-weight: 300; }
-  .hero__desc { font-size: 13px; font-weight: 300; line-height: 16px; text-transform: lowercase; }
 
+  /* Имя: над блюром, left:149 top:127 */
+  .hero__name {
+    left: 149px;
+    top: 127px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 20px;
+    text-transform: capitalize;
+    white-space: nowrap;
+  }
+
+  /* «Ваш»: на блюре, left:152 top:475 */
+  .hero__label-top {
+    left: 152px;
+    top: 475px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 20px;
+    text-transform: none;
+  }
+
+  /* Заголовок: на блюре, 40px/500, left:152 top:498 */
+  .hero__heading {
+    left: 152px;
+    top: 498px;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 49px;
+    right: 16px;
+    text-transform: uppercase;
+  }
+
+  /* «уже N лет»: на блюре, left:152 top:610 */
+  .hero__years {
+    left: 152px;
+    top: 610px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 20px;
+    text-transform: lowercase;
+    white-space: nowrap;
+  }
+
+  /* Биография: ниже «уже N лет», от левого края блюра */
+  .hero__desc {
+    left: 28px;
+    top: 634px;
+    right: 28px;
+    width: auto;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 16px;
+    text-transform: lowercase;
+  }
+
+  /* Цветные точки: left:149 top:757 */
   .hero__dots {
+    position: absolute;
+    left: 149px;
+    top: 757px;
     display: flex;
     gap: 5px;
+    align-items: center;
+    transform: none;
   }
+
   .hero__dot {
     width: 11px;
     height: 11px;

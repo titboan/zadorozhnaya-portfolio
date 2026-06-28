@@ -8,6 +8,7 @@ export default function Hero() {
 
   useEffect(() => {
     const handleScroll = () => {
+      if (window.innerWidth <= 768) return
       const photo = photoRef.current
       if (!photo) return
       photo.style.transform = `translateY(${window.scrollY * 0.25}px)`
