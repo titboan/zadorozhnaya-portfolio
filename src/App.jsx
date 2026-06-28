@@ -10,7 +10,6 @@ import ProjectPage from './pages/ProjectPage'
 function Home() {
   return (
     <>
-      <Cursor />
       <main>
         <Hero />
         <Services />
@@ -25,6 +24,7 @@ function Home() {
 function App() {
   return (
     <BrowserRouter>
+      <Cursor />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/case/:slug" element={<ProjectPage />} />
