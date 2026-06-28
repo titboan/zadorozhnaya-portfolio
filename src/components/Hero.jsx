@@ -56,7 +56,7 @@ export default function Hero() {
         </h1>
 
         {/* Имя: left 1363px, top 730px, translateY(-50%) */}
-        <p className="hero__name">анастасия<br />задорожная</p>
+        <p className="hero__name">Анастасия<br />Задорожная</p>
 
         {/* "уже N лет": left 122px, top 986.5px, translateY(-50%) */}
         <p className="hero__years" ref={yearsRef}>уже {years} лет</p>
