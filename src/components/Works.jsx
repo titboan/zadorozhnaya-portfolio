@@ -1,24 +1,22 @@
 import './Works.css'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 
-function Arrow() {
+function Arrow({ lg }) {
   return (
-    <svg className="works__arrow" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M6 26L26 6M26 6H10M26 6V22" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <svg
+      className={`works__arrow${lg ? ' works__arrow--lg' : ''}`}
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6 26L26 6M26 6H10M26 6V22"
+        stroke="white"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
-  )
-}
-
-function Card({ mod, cat, children }) {
-  const ref = useScrollReveal()
-  return (
-    <div className={`works__card works__card--${mod} reveal`} ref={ref}>
-      <div className="works__head">
-        <span className="works__cat">{cat}</span>
-        <Arrow />
-      </div>
-      {children}
-    </div>
   )
 }
 
@@ -28,73 +26,117 @@ export default function Works() {
   return (
     <section className="works">
       <div className="works__inner">
-        <h2 className="works__heading reveal" ref={headingRef}>МОИ<br />РАБОТЫ</h2>
+        <h2 className="works__heading reveal" ref={headingRef}>
+          МОИ<br />РАБОТЫ
+        </h2>
 
-        <div className="works__grid">
-          {/* col 1, rows 1-2 */}
-          <Card mod="logo" cat="Разработка логотипа">
-            <p className="works__desc">
-              Разработка логотипа как ключевого элемента целостной фирменной айдентики, гармоничное сочетание с другими бренд-коммуникациями и усиление общего имиджа
-            </p>
-            <div className="works__img-wrap">
-              <img src="/images/work-1-logo.jpg" alt="Разработка логотипа" className="works__img" />
+        <div className="works__items">
+
+          {/* ── Top: левая + правая колонки ── */}
+          <div className="works__top">
+
+            {/* Левая колонка */}
+            <div className="works__col">
+
+              {/* Разработка логотипа */}
+              <div className="works__item works__item--logo">
+                <Arrow lg />
+                <div className="works__text">
+                  <p className="works__cat">Разработка логотипа</p>
+                  <p className="works__desc">
+                    Разработка логотипа как ключевого элемента целостной фирменной айдентики, гармоничное сочетание с другими бренд-коммуникациями и усиливание общего имиджа
+                  </p>
+                </div>
+                <div className="works__img-wrap works__img-wrap--logo">
+                  <img src="/images/work-1-logo.jpg" alt="Разработка логотипа" className="works__img" />
+                </div>
+              </div>
+
+              {/* Полиграфия */}
+              <div className="works__item works__item--poly">
+                <Arrow />
+                <div className="works__split">
+                  <div className="works__text">
+                    <p className="works__cat">Полиграфия</p>
+                    <p className="works__desc">{'Фирменная полиграфия является неотъемлемой частью бренда, если у вас уже есть фирменная айдентика, необходимо действовать в ее рамках, но при этом сделать дизайн современным и понятным для ЦА.\n\nТак же я даю рекомендации по дальнейшей постпечатной обработки ориентируясь на бюджет клиента\n\nбуклеты | листовки | визитки | открытки\n| лифлеты | пригласительные'}</p>
+                  </div>
+                  <div className="works__img-side">
+                    <img src="/images/work-3-poly.jpg" alt="Полиграфия" className="works__img" />
+                  </div>
+                </div>
+              </div>
+
             </div>
-          </Card>
 
-          {/* col 2-4, row 1 */}
-          <Card mod="identity" cat={<>Айдентика<br />и фирменный стиль</>}>
-            <div className="works__split">
-              <p className="works__desc">
-                Глубокое погружение в нишу бизнеса, анализ конкурентов и проработка потенциального клиента помогают разработать айдентику, которая будет задавать нужное позицианирование бренда на рынке.
-              </p>
-              <div className="works__img-side">
-                <img src="/images/work-2-identity.jpg" alt="Айдентика" className="works__img" />
+            {/* Правая колонка */}
+            <div className="works__col works__col--right">
+
+              {/* Айдентика */}
+              <div className="works__item works__item--identity">
+                <Arrow />
+                <div className="works__split">
+                  <div className="works__text">
+                    <p className="works__cat">Айдентика<br />и фирменный стиль</p>
+                    <p className="works__desc">
+                      Глубокое погружение в нишу бизнеса, анализ конкурентов и проработка потенциального клиента помогают разработать айдентику, которая будет задавать необходимое позицианирование бренда на рынке.
+                    </p>
+                  </div>
+                  <div className="works__img-side">
+                    <img src="/images/work-2-identity.jpg" alt="Айдентика" className="works__img" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Key Visual */}
+              <div className="works__item works__item--kv">
+                <Arrow lg />
+                <div className="works__text">
+                  <p className="works__cat">Разработка<br />Key Visual</p>
+                  <p className="works__desc">
+                    Грамотно разработанный key visual способен вызывать у целевой аудитории определенные чувства и ассоциации с брендом. Я помогу установить более глубокую эмоциональную связь с покупателями и повысить их лояльность
+                  </p>
+                </div>
+                <div className="works__dual-imgs">
+                  <div className="works__img-wrap">
+                    <img src="/images/work-4-kv1.jpg" alt="Key Visual 1" className="works__img" />
+                  </div>
+                  <div className="works__img-wrap">
+                    <img src="/images/work-5-kv2.jpg" alt="Key Visual 2" className="works__img" />
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          {/* ── Bottom: 3 равные колонки ── */}
+          <div className="works__bottom">
+
+            <div className="works__item works__item--promo">
+              <Arrow />
+              <div className="works__text">
+                <p className="works__cat">Материалы для продвижения бренда</p>
+                <p className="works__desc">Презентации | карточки для маркетплейсов | online-реклама | гайды | рекламные конструкции</p>
               </div>
             </div>
-          </Card>
 
-          {/* col 2-4, row 2 */}
-          <Card mod="kv" cat={<>Разработка<br />Key Visual</>}>
-            <div className="works__split">
-              <p className="works__desc">
-                Грамотно разработанный key visual способен вызывать у целевой аудитории определённые чувства и ассоциации с брендом. Я помогу установить более глубокую эмоциональную связь с покупателями и повысить их лояльность
-              </p>
-              <div className="works__dual-imgs">
-                <img src="/images/work-4-kv1.jpg" alt="Key Visual 1" className="works__img" />
-                <img src="/images/work-5-kv2.jpg" alt="Key Visual 2" className="works__img" />
+            <div className="works__item works__item--social">
+              <Arrow />
+              <div className="works__text">
+                <p className="works__cat">Оформление социальных сетей</p>
+                <p className="works__desc">{'Instagram | ВКонтакте | YouTube\nРазработка визуального оформления и шаблонов\n+ ведение аккаунта на постоянной основе'}</p>
               </div>
             </div>
-          </Card>
 
-          {/* col 1, row 3 */}
-          <Card mod="poly" cat="Полиграфия">
-            <div className="works__split">
-              <div className="works__poly-text">
-                <p className="works__desc">
-                  Фирменная полиграфия является неотъемлемой частью бренда, если у вас уже есть фирменная айдентика, необходимо действовать в её рамках, но при этом сделать дизайн современным и понятным для ЦА.{'\n\n'}Так же я даю рекомендации по дальнейшей постпечатной обработки ориентируясь на бюджет клиента
-                </p>
-                <p className="works__tags">буклеты | листовки | визитки | открытки | лифлеты | пригласительные</p>
-              </div>
-              <div className="works__img-side">
-                <img src="/images/work-3-poly.jpg" alt="Полиграфия" className="works__img" />
+            <div className="works__item works__item--web">
+              <Arrow />
+              <div className="works__text">
+                <p className="works__cat">Web-дизайн</p>
+                <p className="works__desc">Разрабатываем сайт, который полностью соответствует требованиям заказчика. Предложим экспертные рекомендации и создадим как многостраничный веб-ресурс, так и продающую одностраничную лендинг-страницу. Мобильная версия входит в стоимость</p>
               </div>
             </div>
-          </Card>
 
-          {/* col 2, row 3 */}
-          <Card mod="promo" cat="Материалы для продвижения бренда">
-            <p className="works__desc">Презентации | карточки для маркетплейсов | online-реклама | гайды | рекламные конструкции</p>
-          </Card>
-
-          {/* col 3, row 3 */}
-          <Card mod="social" cat="Оформление социальных сетей">
-            <p className="works__desc">{'Instagram | ВКонтакте | YouTube\nРазработка визуального оформления и шаблонов\n+ ведение аккаунта на постоянной основе'}</p>
-          </Card>
-
-          {/* col 4, row 3 */}
-          <Card mod="web" cat="Web-дизайн">
-            <p className="works__desc">Разрабатываю сайт, который полностью соответствует требованиям заказчика. Предложим экспертные рекомендации и создадим как многостраничный веб-ресурс, так и продающую одностраничную лендинг-страницу. Мобильная версия входит в стоимость</p>
-          </Card>
+          </div>
         </div>
       </div>
     </section>
