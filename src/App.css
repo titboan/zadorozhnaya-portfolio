@@ -59,7 +59,7 @@ img {
 .reveal-delay-5 { transition-delay: 0.5s; }
 .reveal-delay-6 { transition-delay: 0.6s; }
 
-/* Hero: статичные элементы появляются при загрузке */
+/* Hero: элементы появляются при загрузке — только opacity, transform не трогаем */
 .hero__label-top,
 .hero__line,
 .hero__name,
@@ -76,8 +76,8 @@ img {
 .hero__dots       { animation-delay: 0.5s; }
 
 @keyframes heroFadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 /* ─── Анимация слов заголовка Hero ─── */
