@@ -2,7 +2,17 @@ import { useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { getCaseStudy } from '../data/case-studies'
 import Contacts from '../components/Contacts'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import './CasePage.css'
+
+function GalleryImage({ src, eager }) {
+  const ref = useScrollReveal()
+  return (
+    <div className="case__img-wrap reveal" ref={ref}>
+      <img src={src} alt="" className="case__img" loading={eager ? 'eager' : 'lazy'} />
+    </div>
+  )
+}
 
 export default function CasePage() {
   const { slug } = useParams()
@@ -59,9 +69,7 @@ export default function CasePage() {
           {/* ── Вертикальная галерея ── */}
           <div className="case__gallery">
             {cs.images.map((src, i) => (
-              <div key={i} className="case__img-wrap">
-                <img src={src} alt="" className="case__img" loading={i < 2 ? 'eager' : 'lazy'} />
-              </div>
+              <GalleryImage key={i} src={src} eager={i < 2} />
             ))}
           </div>
 

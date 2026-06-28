@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { getProject } from '../data/projects'
 import Contacts from '../components/Contacts'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import './ProjectPage.css'
 
 function Arrow() {
@@ -15,10 +16,11 @@ function Arrow() {
 function PCard({ image, title, desc, sub, type = 'full', projectSlug }) {
   const Tag = projectSlug ? Link : 'div'
   const linkProps = projectSlug ? { to: `/project/${projectSlug}` } : {}
+  const cardRef = useScrollReveal()
 
   if (type === 'side') {
     return (
-      <Tag className="pcard pcard--side" {...linkProps}>
+      <Tag className="pcard pcard--side reveal" ref={cardRef} {...linkProps}>
         <div className="pcard__head">
           <div className="pcard__titles">
             <p className="pcard__title">{title}</p>
@@ -39,7 +41,7 @@ function PCard({ image, title, desc, sub, type = 'full', projectSlug }) {
   }
 
   return (
-    <Tag className="pcard" {...linkProps}>
+    <Tag className="pcard reveal" ref={cardRef} {...linkProps}>
       <div className="pcard__head">
         <div className="pcard__titles">
           <p className="pcard__title">{title}</p>

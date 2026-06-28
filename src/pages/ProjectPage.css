@@ -250,6 +250,17 @@
 }
 .pcard:hover .pcard__img { transform: scale(1.04); }
 
+/* ── Scroll reveal ── */
+.pcard.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pcard.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ── 404 ── */
 .project-404 {
   background-color: var(--color-dark);
