@@ -13,15 +13,28 @@ const IconTelegram = () => (
   </svg>
 )
 
+const IconArrowUp = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 19V5M5 12l7-7 7 7" />
+  </svg>
+)
+
 export default function Contacts() {
   const headingRef = useScrollReveal()
   const listRef = useScrollReveal()
+
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
 
   return (
     <>
       <section className="contacts">
         <div className="contacts__inner">
-          <h2 className="contacts__heading reveal" ref={headingRef}>Контакты</h2>
+          <div className="contacts__top-row">
+            <h2 className="contacts__heading reveal" ref={headingRef}>Контакты</h2>
+            <button className="contacts__scroll-top" onClick={scrollToTop} aria-label="Наверх">
+              <IconArrowUp />
+            </button>
+          </div>
 
           <div className="contacts__list reveal reveal-delay-2" ref={listRef}>
             <a href="tel:+79996208873" className="contacts__item">

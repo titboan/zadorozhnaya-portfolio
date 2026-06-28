@@ -51,6 +51,31 @@
   letter-spacing: 0.05em;
 }
 
+.contacts__top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.contacts__scroll-top {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-blue);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+  transition: opacity 0.2s;
+  margin-top: 8px;
+}
+.contacts__scroll-top:hover { opacity: 0.8; }
+.contacts__scroll-top svg { width: 16px; height: 16px; }
+
 .contacts__divider {
   display: inline-block;
   width: 1px;
