@@ -36,9 +36,9 @@
 
 - [ ] **Figma: остальные страницы категорий** — node-id для poly, kv, promo, social, web ещё не смотрели (лимит MCP исчерпан до 1 июля 2026). Использовать «Copy as code → CSS» из Figma для точных значений
 
-- [ ] **Мобильная версия** — проверить и доработать вёрстку страниц проектов на экранах < 768px
+- [x] **Мобильная версия** — Hero/Services/Works/Contacts/ProjectPage/CasePage 428px (Figma CSS). Heading 40px/500, desc 13px/300, Services numbered circles 22px, dots 11px, scroll-to-top button 30px
 
-- [ ] **Hover / переходы** — добавить анимацию появления карточек (scroll reveal) как на главной
+- [x] **Hover / переходы** — scroll reveal: карточки ProjectPage появляются translateY(24px)→0, галерея CasePage translateY(32px)→0
 
 ## Файлы
 
