@@ -40,7 +40,7 @@ export default function Hero() {
       {/* Rectangle56: gradient overlay, left -59px, width 960px */}
       <div className="hero__overlay" />
 
-      <div className="hero__content hero-fade-in">
+      <div className="hero__content">
 
         {/* "ваш": left 97px, top 130.5px, translateY(-50%) */}
         <span className="hero__label-top">Ваш</span>
@@ -62,10 +62,7 @@ export default function Hero() {
         <p className="hero__years" ref={yearsRef}>уже {years} лет</p>
 
         {/* Описание: left calc(50%+403px)=1363px, top 902.5px, width 409px */}
-        <p className="hero__desc">
-          Опыт работы в маркетинге с 2019 года | профильное высшее образование
-          по специальности графический дизайн | работа с крупными брендами
-        </p>
+        <p className="hero__desc">опыт работы в маркетинге с 2019 года | профильное высшее образование по специальности графический дизайн | работа с крупными брендами</p>
 
         {/* Group4 — три цветных круга: left 1363px=70.99vw, top 987px=51.4vw */}
         <div className="hero__dots">

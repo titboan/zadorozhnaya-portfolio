@@ -34,6 +34,8 @@
   flex-direction: column;
   gap: 40px;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
 .works__card:nth-child(odd) {

@@ -38,7 +38,10 @@
 }
 
 .contacts__icon {
-  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--color-white);
 }
 
 .contacts__text {

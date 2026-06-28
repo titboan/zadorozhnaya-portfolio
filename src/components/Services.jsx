@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import './Services.css'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useCounter } from '../hooks/useCounter'
@@ -69,8 +70,8 @@ const services = [
   },
 ]
 
-function ServiceItem({ s }) {
-  const [count, ref] = useCounter(parseInt(s.num), 800)
+function ServiceItem({ s, listRef }) {
+  const [count, ref] = useCounter(parseInt(s.num), 800, listRef)
   const displayNum = String(count).padStart(2, '0')
 
   return (
@@ -114,7 +115,8 @@ function ServiceItem({ s }) {
 
 export default function Services() {
   const headingRef = useScrollReveal()
-  const listRef = useScrollReveal()
+  const wrapRef = useScrollReveal()
+  const scrollListRef = useRef(null)
 
   return (
     <section className="services">
@@ -125,10 +127,10 @@ export default function Services() {
           до разработки рекламной кампании
         </h2>
 
-        <div className="services__list-wrap reveal reveal-delay-1" ref={listRef}>
-          <ul className="services__list" data-lenis-prevent>
+        <div className="services__list-wrap reveal reveal-delay-1" ref={wrapRef}>
+          <ul className="services__list" data-lenis-prevent ref={scrollListRef}>
             {services.map((s) => (
-              <ServiceItem key={s.num} s={s} />
+              <ServiceItem key={s.num} s={s} listRef={scrollListRef} />
             ))}
           </ul>
         </div>

@@ -197,6 +197,17 @@
   text-align: right;
 }
 
+/* ── Ноутбук (769–1100px): сжимаем большой gap между номером и заголовком ── */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .services__left {
+    gap: 6vw;
+  }
+
+  .services__right {
+    width: clamp(200px, 34vw, 400px);
+  }
+}
+
 /* ── Мобайл ── */
 @media (max-width: 768px) {
   .services {

@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 
-export function useCounter(target, duration = 1500) {
+export function useCounter(target, duration = 1500, rootRef = null) {
   const [count, setCount] = useState(0)
   const ref = useRef(null)
 
   useEffect(() => {
     const el = ref.current
     if (!el) return
+
+    const root = rootRef?.current ?? null
 
     const observer = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting) return
@@ -20,11 +22,11 @@ export function useCounter(target, duration = 1500) {
         if (progress < 1) requestAnimationFrame(tick)
       }
       requestAnimationFrame(tick)
-    }, { threshold: 0.5 })
+    }, { threshold: 0.1, root })
 
     observer.observe(el)
     return () => observer.disconnect()
-  }, [target, duration])
+  }, [target, duration, rootRef])
 
   return [count, ref]
 }

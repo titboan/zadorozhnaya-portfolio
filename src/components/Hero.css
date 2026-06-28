@@ -186,6 +186,19 @@
 .hero__dot--yellow { background: #f0c040; }
 .hero__dot--red    { background: #ea1f1f; }
 
+/* ── Ноутбук (769–1100px): правые элементы не влезают — скрываем, оставляем левые ── */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .hero__name,
+  .hero__desc,
+  .hero__dots {
+    display: none;
+  }
+
+  .hero__heading {
+    font-size: clamp(32px, 5.5vw, 70px);
+  }
+}
+
 /* ── Мобайл ── */
 @media (max-width: 768px) {
   .hero {

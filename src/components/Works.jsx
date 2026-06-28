@@ -43,7 +43,7 @@ const works = [
 function WorkCard({ work: w }) {
   const ref = useScrollReveal()
   return (
-    <article className={`works__card reveal reveal-delay-${w.id}`} ref={ref}>
+    <a href="#works" onClick={e => e.preventDefault()} className={`works__card reveal reveal-delay-${w.id}`} ref={ref}>
       <div className="works__card-preview">
         <img src={w.image} alt={w.category} className="works__card-img" />
         <div className="works__card-overlay">
@@ -57,7 +57,7 @@ function WorkCard({ work: w }) {
         </div>
         <span className="works__card-arrow">↗</span>
       </div>
-    </article>
+    </a>
   )
 }
 
