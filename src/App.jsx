@@ -1,11 +1,13 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Hero from './components/Hero'
 import Services from './components/Services'
 import Works from './components/Works'
 import Contacts from './components/Contacts'
 import Cursor from './components/Cursor'
 import Marquee from './components/Marquee'
+import ProjectPage from './pages/ProjectPage'
 
-function App() {
+function Home() {
   return (
     <>
       <Cursor />
@@ -17,6 +19,17 @@ function App() {
         <Contacts />
       </main>
     </>
+  )
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/case/:slug" element={<ProjectPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

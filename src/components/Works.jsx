@@ -1,5 +1,15 @@
+import { Link } from 'react-router-dom'
 import './Works.css'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+
+function Card({ slug, mod, children }) {
+  const ref = useScrollReveal()
+  return (
+    <Link to={`/case/${slug}`} className={`works__item works__item--${mod} reveal`} ref={ref} onClick={() => window.scrollTo(0, 0)}>
+      {children}
+    </Link>
+  )
+}
 
 function Arrow({ lg }) {
   return (
@@ -39,7 +49,7 @@ export default function Works() {
             <div className="works__col">
 
               {/* Разработка логотипа */}
-              <div className="works__item works__item--logo">
+              <Card slug="logo" mod="logo">
                 <Arrow lg />
                 <div className="works__text">
                   <p className="works__cat">Разработка логотипа</p>
@@ -50,10 +60,10 @@ export default function Works() {
                 <div className="works__img-wrap works__img-wrap--logo">
                   <img src="/images/work-1-logo.jpg" alt="Разработка логотипа" className="works__img" />
                 </div>
-              </div>
+              </Card>
 
               {/* Полиграфия */}
-              <div className="works__item works__item--poly">
+              <Card slug="poly" mod="poly">
                 <Arrow />
                 <div className="works__split">
                   <div className="works__text">
@@ -64,7 +74,7 @@ export default function Works() {
                     <img src="/images/work-3-poly.jpg" alt="Полиграфия" className="works__img" />
                   </div>
                 </div>
-              </div>
+              </Card>
 
             </div>
 
@@ -72,7 +82,7 @@ export default function Works() {
             <div className="works__col works__col--right">
 
               {/* Айдентика */}
-              <div className="works__item works__item--identity">
+              <Card slug="identity" mod="identity">
                 <Arrow />
                 <div className="works__split">
                   <div className="works__text">
@@ -85,10 +95,10 @@ export default function Works() {
                     <img src="/images/work-2-identity.jpg" alt="Айдентика" className="works__img" />
                   </div>
                 </div>
-              </div>
+              </Card>
 
               {/* Key Visual */}
-              <div className="works__item works__item--kv">
+              <Card slug="kv" mod="kv">
                 <Arrow lg />
                 <div className="works__text">
                   <p className="works__cat">Разработка<br />Key Visual</p>
@@ -104,7 +114,7 @@ export default function Works() {
                     <img src="/images/work-5-kv2.jpg" alt="Key Visual 2" className="works__img" />
                   </div>
                 </div>
-              </div>
+              </Card>
 
             </div>
           </div>
@@ -112,29 +122,29 @@ export default function Works() {
           {/* ── Bottom: 3 равные колонки ── */}
           <div className="works__bottom">
 
-            <div className="works__item works__item--promo">
+            <Card slug="promo" mod="promo">
               <Arrow />
               <div className="works__text">
                 <p className="works__cat">Материалы для продвижения бренда</p>
                 <p className="works__desc">Презентации | карточки для маркетплейсов | online-реклама | гайды | рекламные конструкции</p>
               </div>
-            </div>
+            </Card>
 
-            <div className="works__item works__item--social">
+            <Card slug="social" mod="social">
               <Arrow />
               <div className="works__text">
                 <p className="works__cat">Оформление социальных сетей</p>
                 <p className="works__desc">{'Instagram | ВКонтакте | YouTube\nРазработка визуального оформления и шаблонов\n+ ведение аккаунта на постоянной основе'}</p>
               </div>
-            </div>
+            </Card>
 
-            <div className="works__item works__item--web">
+            <Card slug="web" mod="web">
               <Arrow />
               <div className="works__text">
                 <p className="works__cat">Web-дизайн</p>
                 <p className="works__desc">Разрабатываем сайт, который полностью соответствует требованиям заказчика. Предложим экспертные рекомендации и создадим как многостраничный веб-ресурс, так и продающую одностраничную лендинг-страницу. Мобильная версия входит в стоимость</p>
               </div>
-            </div>
+            </Card>
 
           </div>
         </div>

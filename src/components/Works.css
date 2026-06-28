@@ -48,6 +48,8 @@
   gap: 40px;
   padding: 32px;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Логотип: border сверху и снизу */

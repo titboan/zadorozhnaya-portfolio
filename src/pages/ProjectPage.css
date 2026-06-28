@@ -1,0 +1,124 @@
+.project {
+  background-color: var(--color-dark);
+  min-height: 100vh;
+  padding: 64px 96px 128px;
+}
+
+.project__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+/* ── Назад ── */
+.project__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 300;
+  padding: 0;
+  transition: color 0.3s ease;
+  width: fit-content;
+}
+
+.project__back:hover {
+  color: var(--color-white);
+}
+
+/* ── Шапка ── */
+.project__header {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 800px;
+}
+
+.project__cat {
+  font-size: clamp(32px, 4vw, 72px);
+  font-weight: 600;
+  color: var(--color-white);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.project__desc {
+  font-size: clamp(14px, 1.04vw, 20px);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.65;
+  max-width: 640px;
+}
+
+/* ── Галерея ── */
+.project__gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.project__gallery:has(.project__img-wrap:only-child),
+.project__gallery:has(.project__img-wrap:nth-child(1):last-child) {
+  grid-template-columns: 1fr;
+}
+
+.project__img-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #1a1a1a;
+}
+
+/* Первое изображение на всю ширину */
+.project__img-wrap:first-child {
+  grid-column: 1 / -1;
+}
+
+.project__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* ── 404 ── */
+.project-404 {
+  background-color: var(--color-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  color: var(--color-white);
+  font-family: var(--font-main);
+}
+
+.project-404 a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-size: 16px;
+}
+
+/* ── Мобайл ── */
+@media (max-width: 768px) {
+  .project {
+    padding: 48px 24px 80px;
+  }
+
+  .project__inner {
+    gap: 40px;
+  }
+
+  .project__gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .project__img-wrap:first-child {
+    grid-column: 1;
+  }
+}
