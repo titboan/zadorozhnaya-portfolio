@@ -16,6 +16,25 @@
   background-color: var(--color-dark);
 }
 
+.project-nav__brand {
+  font-family: var(--font-main);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--color-white);
+}
+.project-nav__brand span {
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0 8px;
+}
+
+.project-nav__right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
 .project-nav__back {
   width: 36px;
   height: 36px;
@@ -33,27 +52,14 @@
 .project-nav__back:hover { opacity: 0.8; }
 .project-nav__back svg { width: 18px; height: 18px; }
 
-.project-nav__brand {
-  font-family: var(--font-main);
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  color: var(--color-white);
-  text-align: center;
-}
-.project-nav__brand span {
-  color: rgba(255, 255, 255, 0.3);
-  margin: 0 8px;
-}
-
 .project-nav__dots {
   display: flex;
-  gap: 6px;
+  gap: 5px;
   align-items: center;
 }
 .pnav-dot {
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
 }
 .pnav-dot--red    { background: #ea1f1f; }
@@ -155,6 +161,11 @@
   opacity: 1;
 }
 
+/* ── Описание над картинкой ── */
+.pcard__desc--top {
+  margin-top: -8px;
+}
+
 /* ── Картинка ── */
 .pcard__img-wrap {
   border-radius: 12px;
@@ -166,6 +177,29 @@
   height: auto;
   display: block;
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Side-карточка (текст + картинка справа) ── */
+.pcard--side .pcard__split {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.pcard--side .pcard__desc {
+  flex: 1;
+  min-width: 0;
+}
+.pcard--side .pcard__img-side {
+  width: 42%;
+  flex-shrink: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #181818;
+}
+.pcard--side .pcard__img-side .pcard__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* ── 404 ── */

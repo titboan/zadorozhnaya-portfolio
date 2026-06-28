@@ -12,17 +12,39 @@ function Arrow() {
   )
 }
 
-function PCard({ image, title, desc, sub }) {
+function PCard({ image, title, desc, sub, type = 'full' }) {
+  if (type === 'side') {
+    return (
+      <div className="pcard pcard--side">
+        <div className="pcard__head">
+          <div className="pcard__titles">
+            <p className="pcard__title">{title}</p>
+            {sub && <p className="pcard__sub">{sub}</p>}
+          </div>
+          <Arrow />
+        </div>
+        <div className="pcard__split">
+          {desc && <p className="pcard__desc">{desc}</p>}
+          {image && (
+            <div className="pcard__img-side">
+              <img src={image} alt="" className="pcard__img" loading="lazy" />
+            </div>
+          )}
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="pcard">
       <div className="pcard__head">
         <div className="pcard__titles">
           <p className="pcard__title">{title}</p>
           {sub && <p className="pcard__sub">{sub}</p>}
-          {desc && <p className="pcard__desc">{desc}</p>}
         </div>
         <Arrow />
       </div>
+      {desc && <p className="pcard__desc pcard__desc--top">{desc}</p>}
       {image && (
         <div className="pcard__img-wrap">
           <img src={image} alt="" className="pcard__img" loading="lazy" />
@@ -59,18 +81,20 @@ export default function ProjectPage() {
       <div className="project">
         {/* ── Навбар ── */}
         <header className="project-nav">
-          <button className="project-nav__back" onClick={() => navigate(-1)} aria-label="Назад">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
           <p className="project-nav__brand">
             ZADOROJNAIA <span>|</span> графический дизайнер
           </p>
-          <div className="project-nav__dots">
-            <span className="pnav-dot pnav-dot--red" />
-            <span className="pnav-dot pnav-dot--yellow" />
-            <span className="pnav-dot pnav-dot--blue" />
+          <div className="project-nav__right">
+            <button className="project-nav__back" onClick={() => navigate(-1)} aria-label="Назад">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            <div className="project-nav__dots">
+              <span className="pnav-dot pnav-dot--red" />
+              <span className="pnav-dot pnav-dot--yellow" />
+              <span className="pnav-dot pnav-dot--blue" />
+            </div>
           </div>
         </header>
 
