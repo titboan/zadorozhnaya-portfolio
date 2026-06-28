@@ -1,43 +1,53 @@
 /* ── Страница проекта ── */
 .project {
   background-color: var(--color-dark);
+  position: relative;
 }
 
 /* ── Навбар ── */
 .project-nav {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: space-between;
-  padding: 16px 40px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  align-items: center;
+  padding: 32px 96px;
+  gap: 16px;
+  height: 88px;
+  box-sizing: border-box;
+  background: #0f0f0f;
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: var(--color-dark);
 }
 
 .project-nav__brand {
   font-family: var(--font-main);
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  color: var(--color-white);
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 20px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 .project-nav__brand span {
-  color: rgba(255, 255, 255, 0.3);
-  margin: 0 8px;
+  display: block;
+  width: 1px;
+  height: 24px;
+  background: #ffffff;
+  flex-shrink: 0;
 }
 
 .project-nav__right {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .project-nav__back {
-  width: 36px;
-  height: 36px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   background: var(--color-blue);
   border: none;
@@ -50,7 +60,7 @@
   transition: opacity 0.2s;
 }
 .project-nav__back:hover { opacity: 0.8; }
-.project-nav__back svg { width: 18px; height: 18px; }
+.project-nav__back svg { width: 22px; height: 22px; }
 
 .project-nav__dots {
   display: flex;
@@ -58,117 +68,175 @@
   align-items: center;
 }
 .pnav-dot {
-  width: 14px;
-  height: 14px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
 }
 .pnav-dot--red    { background: #ea1f1f; }
-.pnav-dot--yellow { background: #f5c518; }
+.pnav-dot--yellow { background: #ffd400; }
 .pnav-dot--blue   { background: var(--color-blue); }
 
 /* ── Inner ── */
 .project__inner {
-  padding: 72px 96px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 96px 96px 128px;
+  gap: 96px;
 }
 
 /* ── Заголовок ── */
 .project__title {
-  font-size: clamp(40px, 6.25vw, 120px);
-  font-weight: 700;
-  color: var(--color-white);
-  line-height: 1;
-  margin-bottom: 72px;
   font-family: var(--font-main);
+  font-size: 90px;
+  font-weight: 600;
+  line-height: 110px;
+  color: #ffffff;
+  text-transform: uppercase;
 }
 
 /* ── 2-колоночная сетка ── */
 .project__cols {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
 }
 
 .project__col {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  min-width: 0;
 }
 
-.project__col:last-child {
-  border-left: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-/* ── Карточка ── */
+/* ── Карточка базовая ── */
 .pcard {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 28px 32px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-  cursor: default;
+  gap: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
 }
 
-.pcard:hover .pcard__img { transform: scale(1.04); }
+/* Левая колонка: padding справа */
+.project__col:first-child .pcard {
+  padding: 32px 32px 32px 0;
+}
+
+/* Правая колонка: border слева + padding слева */
+.project__col:last-child .pcard {
+  padding: 32px 0 32px 32px;
+  border-left: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+/* Убираем дублирующийся border-top у второй и последующих карточек */
+.project__col .pcard + .pcard {
+  border-top: none;
+}
 
 /* ── Шапка карточки ── */
 .pcard__head {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 12px;
+  flex-direction: column;
+  gap: 64px;
+  position: relative;
 }
 
 .pcard__titles {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  flex: 1;
-  min-width: 0;
+  gap: 8px;
 }
 
 .pcard__title {
   font-family: var(--font-main);
-  font-size: clamp(11px, 0.73vw, 14px);
+  font-size: 20px;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.55);
-  line-height: 1.4;
+  line-height: 24px;
+  color: #ffffff;
+  opacity: 0.7;
 }
 
 .pcard__sub {
   font-family: var(--font-main);
-  font-size: clamp(10px, 0.63vw, 12px);
+  font-size: 16px;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.35);
-  line-height: 1.4;
+  line-height: 20px;
+  color: #ffffff;
 }
 
-.pcard__desc {
+.pcard__desc--top {
   font-family: var(--font-main);
-  font-size: clamp(10px, 0.63vw, 12px);
+  font-size: 16px;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.35);
-  line-height: 1.6;
+  line-height: 20px;
+  color: #ffffff;
 }
 
+/* ── Стрелка (абсолютная) ── */
 .pcard__arrow {
-  width: 22px;
-  height: 22px;
-  flex-shrink: 0;
-  opacity: 0.5;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 72px;
+  height: 72px;
+  pointer-events: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .pcard:hover .pcard__arrow {
-  transform: translate(3px, -3px);
-  opacity: 1;
+  transform: translate(4px, -4px);
 }
 
-/* ── Описание над картинкой ── */
-.pcard__desc--top {
-  margin-top: -8px;
+/* ── Side-карточка (текст + картинка справа) ── */
+.pcard--side .pcard__arrow {
+  width: 40px;
+  height: 40px;
+  top: auto;
+  bottom: 0;
+  right: auto;
+  left: 0;
 }
 
-/* ── Картинка ── */
+.project__col:last-child .pcard--side .pcard__arrow {
+  left: 32px;
+}
+
+.pcard--side .pcard__split {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.pcard--side .pcard__desc {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 20px;
+  color: #ffffff;
+  white-space: pre-line;
+}
+
+.pcard--side .pcard__img-side {
+  width: 45%;
+  flex-shrink: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #181818;
+}
+.pcard--side .pcard__img-side .pcard__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Картинка (full) ── */
 .pcard__img-wrap {
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
   background-color: #181818;
 }
@@ -178,29 +246,7 @@
   display: block;
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-/* ── Side-карточка (текст + картинка справа) ── */
-.pcard--side .pcard__split {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-}
-.pcard--side .pcard__desc {
-  flex: 1;
-  min-width: 0;
-}
-.pcard--side .pcard__img-side {
-  width: 42%;
-  flex-shrink: 0;
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: #181818;
-}
-.pcard--side .pcard__img-side .pcard__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.pcard:hover .pcard__img { transform: scale(1.04); }
 
 /* ── 404 ── */
 .project-404 {
@@ -220,40 +266,39 @@
   font-size: 16px;
 }
 
+/* ── Tablet ── */
+@media (max-width: 1280px) {
+  .project-nav { padding: 24px 48px; }
+  .project__inner { padding: 64px 48px 96px; gap: 64px; }
+  .project__title { font-size: 64px; line-height: 78px; }
+  .pcard__arrow { width: 52px; height: 52px; }
+  .pcard--side .pcard__arrow { width: 32px; height: 32px; }
+}
+
 /* ── Mobile ── */
 @media (max-width: 768px) {
   .project-nav {
-    padding: 14px 20px;
-  }
-  .project-nav__brand {
-    font-size: 10px;
-    letter-spacing: 0.03em;
-  }
-
-  .project__inner {
-    padding: 48px 0 0;
-  }
-  .project__title {
-    font-size: clamp(28px, 8vw, 56px);
-    padding: 0 24px;
-    margin-bottom: 48px;
-  }
-
-  .project__cols {
-    grid-template-columns: 1fr;
-  }
-  .project__col:last-child {
-    border-left: none;
-  }
-
-  .pcard {
     padding: 20px 24px;
+    height: auto;
   }
-}
+  .project-nav__brand { font-size: 12px; gap: 10px; }
+  .project-nav__back { width: 36px; height: 36px; }
+  .project-nav__back svg { width: 18px; height: 18px; }
+  .pnav-dot { width: 12px; height: 12px; }
 
-/* ── Tablet ── */
-@media (min-width: 769px) and (max-width: 1100px) {
-  .project__inner {
-    padding: 56px 48px 0;
+  .project__inner { padding: 48px 0 64px; gap: 48px; }
+  .project__title {
+    font-size: 36px;
+    line-height: 44px;
+    padding: 0 24px;
   }
+
+  .project__cols { flex-direction: column; }
+
+  .project__col:first-child .pcard { padding: 24px 24px 24px 24px; }
+  .project__col:last-child .pcard  { padding: 24px 24px 24px 24px; border-left: none; }
+
+  .pcard__arrow { width: 40px; height: 40px; }
+  .pcard--side .pcard__split { flex-direction: column; }
+  .pcard--side .pcard__img-side { width: 100%; }
 }

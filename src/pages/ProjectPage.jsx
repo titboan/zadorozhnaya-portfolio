@@ -44,7 +44,6 @@ function PCard({ image, title, desc, sub, type = 'full' }) {
         </div>
         <Arrow />
       </div>
-      {desc && <p className="pcard__desc pcard__desc--top">{desc}</p>}
       {image && (
         <div className="pcard__img-wrap">
           <img src={image} alt="" className="pcard__img" loading="lazy" />
