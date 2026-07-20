@@ -154,7 +154,7 @@ export const projects = [
         type: 'full',
         title: 'Key Visual для центра флебологии АРД',
         sub: 'г. Краснодар — ключевой визуальный образ бренда',
-        image: '/images/projects/flebologiya/Key visual для центра флебологии Задача_ Разработать ключевой визуальный образ для центра флебологии АРД в г. Краснодар. Необходимо ярко и.jpg',
+        image: '/images/projects/flebologiya/key-visual.jpg',
       },
       {
         type: 'full',
@@ -190,7 +190,7 @@ export const projects = [
       {
         type: 'full',
         title: 'Презентация личного бренда',
-        image: '/images/projects/personal-brand/Презентация для продвижения личного бренда  Создание премиальной презентации для личного бренда в стиле минимализм. Задача_ отразит.jpg',
+        image: '/images/projects/personal-brand/presentation-2.jpg',
       },
     ],
   },
