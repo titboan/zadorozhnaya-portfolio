@@ -107,6 +107,7 @@ GitHub Actions (`build-check.yml`) гоняет `npm run build` на кажды�
 npm run dev      # запустить dev-сервер → localhost:5173
 npm run build    # собрать для деплоя
 npm run preview  # посмотреть сборку локально
+npm run lint     # ESLint + jsx-a11y (eslint.config.js) по src/
 ```
 
 ---
