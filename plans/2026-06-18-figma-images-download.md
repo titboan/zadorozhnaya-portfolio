@@ -25,6 +25,12 @@ REST Images API заблокирован до ~22 июня 2026 (Retry-After: 34
 - `0:350` → `previews/logotipy.jpg` (1920×4986, scale=0.3)
 - `0:44`  → `previews/glavnaya.jpg` (1920×5925, scale=0.3)
 
+### 4. Кейс «Солнечный берег» — полностью отсутствует (найдено 2026-07-20)
+
+`src/data/case-studies.js` ссылается на `public/images/cases/solnechny-bereg/page-0001.jpg` … `page-0022.jpg` (22 файла) — папки `public/images/cases/solnechny-bereg/` на диске нет вообще, есть только `cases/agrocentr/`. Страница `/case/solnechny-bereg` сейчас показывает 22 сломанные картинки.
+
+Отложено (решение пользователя 2026-07-20) — не блокирует остальную работу, доделать отдельным заходом: скачать 22 страницы кейса через Lunacy MCP (`get_selected` + `export`, см. `lunacy-workflow`) на компьютере Бори, либо через Figma REST API когда разблокируется.
+
 ## Фазы
 
 - [ ] **Фаза 1**: Дождаться сброса REST API (~22 июня) или экспортировать вручную из Figma
