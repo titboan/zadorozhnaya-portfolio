@@ -10,7 +10,7 @@
 1. `CLAUDE.md` (этот файл) — правила, структура, навигация
 2. `ai-clone/feedback/` — если задача пересекается с прошлыми граблями (Figma, CSS-анимации, Vite, и т.д.)
 3. `plans/` — если есть файл со строкой `Статус: в работе`, показать и спросить, продолжать ли
-4. Зона задачи — нужный `.claude/skills/*/SKILL.md` (`figma-workflow` для вёрстки секций, `deploy-vercel` перед пушем)
+4. Зона задачи — нужный `.claude/skills/*/SKILL.md` (`lunacy-workflow` для вёрстки секций локально, `figma-workflow` как резерв, `deploy-vercel` перед пушем)
 
 ---
 
@@ -36,7 +36,8 @@ zadorozhnaya-portfolio/
 ├── .claude/
 │   ├── settings.json            ← deny-правила (git add ./-A, force push)
 │   └── skills/                  ← SKILL.md-навыки:
-│       ├── figma-workflow/SKILL.md  ← чтение дизайна из Figma
+│       ├── lunacy-workflow/SKILL.md ← чтение дизайна из Lunacy (основной, локально)
+│       ├── figma-workflow/SKILL.md  ← чтение дизайна из Figma (резерв)
 │       └── deploy-vercel/SKILL.md   ← проверки перед/после пуша в master
 ├── .github/workflows/           ← CI: build-check.yml (npm run build на push/PR)
 └── src/
@@ -48,9 +49,13 @@ zadorozhnaya-portfolio/
 
 ---
 
-## Figma
+## Figma / Lunacy
 
-Файл: `rA5AGt3zuM05YM7lzS0CoC`  
+Основной инструмент чтения дизайна — **Lunacy** (локально на компьютере Бори, MCP-сервер `Lunacy`, снимает лимит Figma в 6 запросов/месяц, проверено на реальной задаче 2026-07-20). Используй `.claude/skills/lunacy-workflow/`.
+
+Figma остаётся источником оригинального файла и резервным вариантом (облачная сессия без Lunacy, или контент ещё не перенесён в Lunacy-копию) — `.claude/skills/figma-workflow/`.
+
+Figma fileKey: `rA5AGt3zuM05YM7lzS0CoC`  
 Секции: Hero (чёрный) → Services (синий) → Works (тёмный) → Contacts (красный)
 
 ---

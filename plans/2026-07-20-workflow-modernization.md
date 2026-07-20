@@ -61,11 +61,12 @@
    - [x] Включить в Lunacy MCP/LLM-интеграцию — на деле не «Settings → LLM Integration» как думали изначально, а отдельный пункт меню **AI → Model Context Protocol → MCP Server Enabled**, там же **Copy MCP Servers File**
 3. Боря, подключение MCP к Claude Code:
    - [x] Добавить конфиг Lunacy в Claude Code — `claude mcp add-json` через PowerShell выдавал `Invalid input`, а `claude mcp add --scope user Lunacy -- "C:\Program Files\Lunacy\Lunacy.exe" -mcp` в самой PowerShell не сработал (PowerShell съедал разделитель `--`, команда падала на `unknown option '-mcp'`) — сработало через Git Bash той же машины с `claude mcp add --scope user Lunacy -- "C:\Program Files\Lunacy\Lunacy.exe" -mcp`. `claude mcp list` подтверждает: `Lunacy — ✓ Connected`. Зафиксировано в `ai-clone/feedback/claude-mcp-add-powershell-dashdash.md`
-   - [ ] Перезапустить Claude — дальше локальная сессия видит выделенные объекты в Lunacy в реальном времени. MCP-сервер зарегистрирован и подключён, но инструменты Lunacy ещё не появились в текущей (уже запущенной) сессии — нужен рестарт, чтобы Claude Code их подхватил
+   - [x] Перезапустить Claude — рестарт произошёл, инструменты `mcp__Lunacy__*` появились в сессии. Проверено вызовом `get_viewport_info` — реально отвечает координатами вьюпорта открытого в Lunacy файла
 4. Клод (в локальной сессии, после подключения):
-   - [ ] Обновить `.claude/skills/figma-workflow.md` → `lunacy-workflow.md` — рано, ещё не проверено, что реальную работу (кейсы, ассеты) можно вести через Lunacy MCP вместо Figma MCP
-   - [ ] Обновить раздел «Figma» в `CLAUDE.md` на «Lunacy» + путь к локальному файлу — то же самое, ждём проверки на реальной задаче
-   - [ ] Не удалять данные о старом Figma-файле, пока не подтверждено что весь нужный контент (кейсы, ассеты) перенесён
+   - [x] Проверить на реальной задаче — Боря выделил в Lunacy фрейм «солнечный берег», `get_selected` вернул точную структуру (`size: [1915, 25361]`, совпадает с Figma), `export scale=0.3 JPG` дал корректное превью. Подтверждено: Lunacy MCP пригоден для реальной работы, не только чтения метаданных
+   - [x] Создать `.claude/skills/lunacy-workflow/SKILL.md` — новый основной навык, `figma-workflow` помечен как резервный
+   - [x] Обновить раздел «Figma» в `CLAUDE.md` на «Figma / Lunacy» — Lunacy основной инструмент, Figma остаётся резервом
+   - [x] Не удалять данные о старом Figma-файле — fileKey и структура секций оставлены в `CLAUDE.md`, `figma-workflow/SKILL.md` не удалён (нужен как резерв, пока не весь контент кейсов перенесён — при проверке 2026-07-20 обнаружено, что «Провыходной» и «монтажные области» из `plans/2026-06-18-figma-images-download.md` ещё не скачаны ни через Figma, ни через Lunacy)
 
 **Важно:** эта часть плана работает только в локальной сессии Claude Code на компьютере Бори (через VS Code) — у текущей облачной сессии нет доступа к её экрану и локально запущенным приложениям вроде Lunacy.
 
