@@ -5,11 +5,11 @@ import Contacts from '../components/Contacts'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import './CasePage.css'
 
-function GalleryImage({ src, eager }) {
+function GalleryImage({ src, alt, eager }) {
   const ref = useScrollReveal()
   return (
     <div className="case__img-wrap reveal" ref={ref}>
-      <img src={src} alt="" className="case__img" loading={eager ? 'eager' : 'lazy'} />
+      <img src={src} alt={alt} className="case__img" loading={eager ? 'eager' : 'lazy'} />
     </div>
   )
 }
@@ -69,7 +69,7 @@ export default function CasePage() {
           {/* ── Вертикальная галерея ── */}
           <div className="case__gallery">
             {cs.images.map((src, i) => (
-              <GalleryImage key={i} src={src} eager={i < 2} />
+              <GalleryImage key={i} src={src} alt={`${cs.title} — страница ${i + 1}`} eager={i < 2} />
             ))}
           </div>
 
