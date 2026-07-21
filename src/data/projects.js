@@ -146,20 +146,24 @@ export const projects = [
     cover: '/images/work-4-kv1.jpg',
     cards: [
       {
+        // work-4-kv1.jpg — пустой файл-заглушка (100% белый), временно другое фото. См. plans/2026-06-28-project-pages.md
         type: 'full',
         title: 'Key Visual для рекламной кампании',
-        image: '/images/work-4-kv1.jpg',
+        image: '/images/projects/rk-fevral/cover.jpg',
+        imgPosition: '10% center',
       },
       {
+        // flebologiya/key-visual.jpg — пустой файл-заглушка (100% белый), временно другое фото. См. plans/2026-06-28-project-pages.md
         type: 'full',
         title: 'Key Visual для центра флебологии АРД',
         sub: 'г. Краснодар — ключевой визуальный образ бренда',
-        image: '/images/projects/flebologiya/key-visual.jpg',
+        image: '/images/projects/poly/events.jpg',
       },
       {
+        // work-5-kv2.jpg — пустой файл-заглушка (100% белый), временно другое фото. См. plans/2026-06-28-project-pages.md
         type: 'full',
         title: 'Key Visual — имиджевая кампания',
-        image: '/images/work-5-kv2.jpg',
+        image: '/images/projects/provykhodnoy/guideline.jpg',
       },
     ],
   },
@@ -170,16 +174,19 @@ export const projects = [
     cover: '/images/projects/akcii/cover.jpg',
     cards: [
       {
+        // akcii/cover.jpg — пустой файл-заглушка (100% белый), временно другое фото. См. plans/2026-06-28-project-pages.md
         type: 'full',
         title: 'Акционные материалы',
         sub: 'баннеры и POS-материалы для розничной сети',
-        image: '/images/projects/akcii/cover.jpg',
+        image: '/images/projects/poly/packaging.jpg',
       },
       {
+        // при object-position по умолчанию (center) обрезка попадает в пустой промежуток между баннерами на исходнике
         type: 'full',
         title: 'Рекламная кампания — февраль',
         sub: 'комплект рекламных материалов',
         image: '/images/projects/rk-fevral/cover.jpg',
+        imgPosition: '10% center',
       },
       {
         type: 'full',
@@ -188,9 +195,10 @@ export const projects = [
         image: '/images/projects/personal-brand/presentation-1.jpg',
       },
       {
+        // personal-brand/presentation-2.jpg — пустой файл-заглушка (100% белый), временно другое фото. См. plans/2026-06-28-project-pages.md
         type: 'full',
         title: 'Презентация личного бренда',
-        image: '/images/projects/personal-brand/presentation-2.jpg',
+        image: '/images/projects/poly/business-cards.jpg',
       },
     ],
   },
@@ -201,10 +209,11 @@ export const projects = [
     cover: '/images/work-6-social.jpg',
     cards: [
       {
+        // work-6-social.jpg — пустой файл-заглушка (100% белый), временно другое фото. См. plans/2026-06-28-project-pages.md
         type: 'full',
         title: 'Оформление Instagram',
         sub: 'визуальный стиль и шаблоны для постов',
-        image: '/images/work-6-social.jpg',
+        image: '/images/projects/poly/branded.jpg',
       },
       {
         type: 'full',
@@ -246,10 +255,11 @@ export const projects = [
         image: '/images/projects/dental/cover.jpg',
       },
       {
+        // dental/website.jpg — пустой файл-заглушка (100% белый), временно другое фото. См. plans/2026-06-28-project-pages.md
         type: 'full',
         title: 'Дизайн сайта для детской стоматологии',
         sub: 'создание доверительного визуала для маленьких пациентов',
-        image: '/images/projects/dental/website.jpg',
+        image: '/images/cases/agrocentr/page-05.jpg',
       },
       {
         type: 'full',

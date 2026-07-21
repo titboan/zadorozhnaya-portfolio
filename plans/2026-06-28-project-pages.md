@@ -16,7 +16,16 @@
 
 - [ ] **Загрузить реальные фото проектов** — сейчас во многих карточках placeholder-изображения
 
-  2026-07-21: обнаружено, что `public/images/work-4-kv1.jpg`, `work-5-kv2.jpg` (карточка Key Visual на главной), `work-6-social.jpg`, `projects/flebologiya/key-visual.jpg`, `projects/personal-brand/presentation-2.jpg`, `projects/akcii/cover.jpg`, `projects/dental/website.jpg` — полностью белые файлы-заглушки (проверено `sharp`: min=max=255). На главной (`Works.jsx`, карточка Key Visual) временно подставлены `projects/rk-fevral/cover.jpg` и `projects/dental/cover.jpg` — заменить на реальные KV-фото, когда будут исходники.
+  2026-07-21: полное сканирование `public/images/` (`sharp`, все файлы min=max по пикселям) нашло 7 полностью белых файлов-заглушек: `work-4-kv1.jpg`, `work-5-kv2.jpg`, `work-6-social.jpg`, `projects/flebologiya/key-visual.jpg`, `projects/personal-brand/presentation-2.jpg`, `projects/akcii/cover.jpg`, `projects/dental/website.jpg`. Все места, где они реально рендерились (главная `Works.jsx` + `/case/kv`, `/case/promo`, `/case/social`, `/case/web` через `src/data/projects.js`), временно переключены на другие уже существующие реальные фото — отмечено комментарием прямо у каждой замены в коде. `cover:` поля в `projects.js`, указывающие на те же заглушки, не трогал — это мёртвые данные, нигде не рендерятся (проверено — не используются в `ProjectPage.jsx`).
+
+  Заменить на настоящие фото, когда будут исходники:
+  - Главная, карточка Key Visual (`Works.jsx`) — 2 слота
+  - `/case/kv` — все 3 карточки (весь раздел был полностью пустым)
+  - `/case/promo` — карточка «Акционные материалы» и «Презентация личного бренда»
+  - `/case/social` — карточка «Оформление Instagram»
+  - `/case/web` — карточка «Дизайн сайта для детской стоматологии»
+
+  Попутно найден и исправлен реальный (не заглушка) баг: `projects/rk-fevral/cover.jpg` при `object-fit: cover` и дефолтном центрировании обрезался ровно в белый промежуток между баннерами на исходнике (широкий 2.57:1 композит с большими полями) — добавлен `imgPosition` проп в `PCard` (`ProjectPage.jsx`) и `style objectPosition` в `Works.jsx`, `10% center` для всех 3 мест использования этого файла.
 
   Структура папок для новых фото:
   ```

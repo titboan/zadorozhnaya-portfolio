@@ -13,7 +13,7 @@ function Arrow() {
   )
 }
 
-function PCard({ image, title, desc, sub, type = 'full', projectSlug }) {
+function PCard({ image, imgPosition, title, desc, sub, type = 'full', projectSlug }) {
   const Tag = projectSlug ? Link : 'div'
   const linkProps = projectSlug ? { to: `/project/${projectSlug}` } : {}
   const cardRef = useScrollReveal()
@@ -32,7 +32,7 @@ function PCard({ image, title, desc, sub, type = 'full', projectSlug }) {
           {desc && <p className="pcard__desc">{desc}</p>}
           {image && (
             <div className="pcard__img-side">
-              <img src={image} alt="" className="pcard__img" loading="lazy" />
+              <img src={image} alt="" className="pcard__img" loading="lazy" style={imgPosition ? { objectPosition: imgPosition } : undefined} />
             </div>
           )}
         </div>
@@ -51,7 +51,7 @@ function PCard({ image, title, desc, sub, type = 'full', projectSlug }) {
       </div>
       {image && (
         <div className="pcard__img-wrap">
-          <img src={image} alt="" className="pcard__img" loading="lazy" />
+          <img src={image} alt="" className="pcard__img" loading="lazy" style={imgPosition ? { objectPosition: imgPosition } : undefined} />
         </div>
       )}
     </Tag>
