@@ -16,6 +16,8 @@
 
 - [ ] **Загрузить реальные фото проектов** — сейчас во многих карточках placeholder-изображения
 
+  2026-07-21: обнаружено, что `public/images/work-4-kv1.jpg`, `work-5-kv2.jpg` (карточка Key Visual на главной), `work-6-social.jpg`, `projects/flebologiya/key-visual.jpg`, `projects/personal-brand/presentation-2.jpg`, `projects/akcii/cover.jpg`, `projects/dental/website.jpg` — полностью белые файлы-заглушки (проверено `sharp`: min=max=255). На главной (`Works.jsx`, карточка Key Visual) временно подставлены `projects/rk-fevral/cover.jpg` и `projects/dental/cover.jpg` — заменить на реальные KV-фото, когда будут исходники.
+
   Структура папок для новых фото:
   ```
   public/images/projects/

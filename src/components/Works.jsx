@@ -106,12 +106,14 @@ export default function Works() {
                     Грамотно разработанный key visual способен вызывать у целевой аудитории определенные чувства и ассоциации с брендом. Я помогу установить более глубокую эмоциональную связь с покупателями и повысить их лояльность
                   </p>
                 </div>
+                {/* work-4-kv1.jpg/work-5-kv2.jpg — пустые файлы-заглушки (проверено: 100% белый пиксель).
+                    Временно показываем другие реальные фото, пока нет исходников KV от Бориса. */}
                 <div className="works__dual-imgs">
                   <div className="works__img-wrap">
-                    <img src="/images/work-4-kv1.jpg" alt="Key Visual 1" className="works__img" />
+                    <img src="/images/projects/rk-fevral/cover.jpg" alt="Key Visual 1" className="works__img" style={{ objectPosition: '10% center' }} />
                   </div>
                   <div className="works__img-wrap">
-                    <img src="/images/work-5-kv2.jpg" alt="Key Visual 2" className="works__img" />
+                    <img src="/images/projects/dental/cover.jpg" alt="Key Visual 2" className="works__img" />
                   </div>
                 </div>
               </Card>
